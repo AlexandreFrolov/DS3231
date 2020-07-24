@@ -1,3 +1,8 @@
+
+/**
+ * DS3231 block
+ */
+//% weight=100 color=#70c0f0 icon="\uf042" block="DS3231"
 namespace DS3231 {
     const I2C_ADDR = 0x68
     const REG_SECS = 0x00
