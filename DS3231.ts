@@ -40,6 +40,11 @@ namespace DS3231 {
         pins.i2cWriteBuffer(I2C_ADDR, data)
     }
 
+    /**
+     * get time
+     */
+    //% blockId="DS3231_GET_TIME" block="getTime %u"
+    //% weight=80 blockGap=8
     export function getTime(): number[] {
         let hour = bcd.Decode(getRegister(REG_HOUR))
         let mins = bcd.Decode(getRegister(REG_MINS))
