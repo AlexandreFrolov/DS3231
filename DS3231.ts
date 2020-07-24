@@ -4,17 +4,41 @@
  */
 //% weight=100 color=#70c0f0 icon="\uf042" block="DS3231"
 namespace DS3231 {
-    const I2C_ADDR = 0x68
-    const REG_SECS = 0x00
-    const REG_MINS = 0x01
-    const REG_HOUR = 0x02
-    const REG_CTRL = 0x0E
+
+    const DS3231_I2C_ADDR=0x68
+
+    // Timekeeing Registers
+
+    const DS3231_SECONDS = 0x00
+    const DS3231_MINUTES = 0x01
+    const DS3231_HOURS   = 0x02
+    const DS3231_DAY = 0x03
+    const DS3231_DATE = 0x04
+    const DS3231_MONTH = 0x05
+    const DS3231_YEAR = 0x06
+
+    const DS3231_A1_SECONDS = 0x07
+    const DS3231_A1_MINUTES = 0x08
+    const DS3231_A1_HOURS   = 0x09
+    const DS3231_A1_DAY_DATA = 0x0A
+
+    const DS3231_A2_MINUTES = 0x0B
+    const DS3231_A2_HOURS   = 0x0D
+    const DS3231_A2_DAY_DATA = 0x0A
+
+    const DS3231_CONTROL_ADDR = 0x0E
+    const DS3231_STATUS_ADDR = 0x0F
+
+    const DS3231_AGING_OFFSET = 0x10
+    const DS3231_MSB_TEMP = 0x11
+    const DS3231_LSB_TEMP = 0x12
+
 
     function initialize() {
         let buf = pins.createBuffer(2)
-        buf[0] = REG_CTRL
+        buf[0] = DS3231_CONTROL_ADDR
         buf[1] = 0x4C
-        pins.i2cWriteBuffer(I2C_ADDR, buf)
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buf)
     }
 
     initialize()
@@ -29,15 +53,15 @@ namespace DS3231 {
     function getRegister(register: number): number {
         let data = pins.createBuffer(1)
         data[0] = register
-        pins.i2cWriteBuffer(I2C_ADDR, data)
-        return pins.i2cReadNumber(I2C_ADDR, NumberFormat.Int8LE)
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
+        return pins.i2cReadNumber(DS3231_I2C_ADDR, NumberFormat.Int8LE)
     }
 
     function setRegister(register: number, value: number) {
         let data = pins.createBuffer(2)
         data[0] = register
         data[1] = value
-        pins.i2cWriteBuffer(I2C_ADDR, data)
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
     }
 
     /**
@@ -46,9 +70,9 @@ namespace DS3231 {
     //% blockId="DS3231_GET_TIME" block="getTime %u"
     //% weight=80 blockGap=8
     export function getTime(): number[] {
-        let hour = bcd.Decode(getRegister(REG_HOUR))
-        let mins = bcd.Decode(getRegister(REG_MINS))
-        let secs = bcd.Decode(getRegister(REG_SECS))
+        let hour = bcd.Decode(getRegister(DS3231_HOURS))
+        let mins = bcd.Decode(getRegister(DS3231_MINUTES))
+        let secs = bcd.Decode(getRegister(DS3231_SECONDS))
         return [hour, mins, secs]
     }
 
@@ -57,9 +81,9 @@ namespace DS3231 {
      */
     //% block
     export function setTime(hour: number, mins: number, secs: number) {
-        setRegister(REG_HOUR, bcd.Encode(hour))
-        setRegister(REG_MINS, bcd.Encode(mins))
-        setRegister(REG_SECS, bcd.Encode(secs))
+        setRegister(DS3231_HOURS, bcd.Encode(hour))
+        setRegister(DS3231_MINUTES, bcd.Encode(mins))
+        setRegister(DS3231_SECONDS, bcd.Encode(secs))
     }
 
     /**
