@@ -82,6 +82,7 @@ namespace DS3231 {
      * setDate
      */
     //% block
+    //% number.min=1 number.max=7 date.min=1 date.max=31 month.min=1 month.max=12 year.min=0 year.max=99
     export function setDate(day: number, date: number, month: number, year: number) {
         setRegister(DS3231_DAY, day)
         setRegister(DS3231_DATE, date)
