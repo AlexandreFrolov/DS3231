@@ -76,6 +76,19 @@ namespace DS3231 {
     }
 
 
+    /**
+     * getDateString
+     */
+    //% block
+    export function getDateString(): string {
+        let day = bcd.Decode(getRegister(DS3231_DAY))
+        let date = bcd.Decode(getRegister(DS3231_DATE))
+        let month = bcd.Decode(getRegister(DS3231_MONTH))
+        let year = bcd.Decode(getRegister(DS3231_YEAR))
+        return `${day}:${date}:${month}:${year}`
+    }
+
+
 
     /**
      * get time
