@@ -76,15 +76,30 @@ namespace DS3231 {
     }
 
 
+
+
+    /**
+     * setDate
+     */
+    //% block
+    export function setDate(day: number, date: number, month: number, year: number) {
+        setRegister(DS3231_DAY, day)
+        setRegister(DS3231_DATE, date)
+        setRegister(DS3231_MONTH, month)
+        setRegister(DS3231_YEAR, year)
+    }
+
+
+
     /**
      * getDateString
      */
     //% block
     export function getDateString(): string {
-        let day = bcd.Decode(getRegister(DS3231_DAY))
-        let date = bcd.Decode(getRegister(DS3231_DATE))
-        let month = bcd.Decode(getRegister(DS3231_MONTH))
-        let year = bcd.Decode(getRegister(DS3231_YEAR))
+        let day = getRegister(DS3231_DAY)
+        let date = getRegister(DS3231_DATE)
+        let month = getRegister(DS3231_MONTH)
+        let year = getRegister(DS3231_YEAR)
         return `${day}:${date}:${month}:${year}`
     }
 
