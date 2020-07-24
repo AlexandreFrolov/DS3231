@@ -53,7 +53,7 @@ namespace DS3231 {
     }
 
     /**
-     * set time
+     * setTime
      */
     //% block
     export function setTime(hour: number, mins: number, secs: number) {
@@ -63,7 +63,7 @@ namespace DS3231 {
     }
 
     /**
-     * set time string
+     * setTimeString
      */
     //% block
     export function setTimeString(input: string) {
@@ -77,7 +77,7 @@ namespace DS3231 {
     }
 
     /**
-     * get time string
+     * getTimeString
      */
     //% block
     export function getTimeString(): string {
