@@ -34,14 +34,14 @@ namespace DS3231 {
     const DS3231_LSB_TEMP = 0x12
 
 
-    function initialize() {
+    function DS3231_init() {
         let buf = pins.createBuffer(2)
         buf[0] = DS3231_CONTROL_ADDR
         buf[1] = 0x4C
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, buf)
     }
 
-    initialize()
+    DS3231_init()
 
     function leadingZero(value: number): string {
         if (value < 10) {
@@ -63,6 +63,19 @@ namespace DS3231 {
         data[1] = value
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
     }
+
+
+    /**
+     * get temperature string
+     */
+    //% block
+    export function getTemperatureString(): string {
+        let msb_temp = getRegister(DS3231_MSB_TEMP)
+        let lsb_temp = getRegister(DS3231_LSB_TEMP)
+        return `${msb_temp}:${lsb_temp}`
+    }
+
+
 
     /**
      * get time
