@@ -1,0 +1,18 @@
+{
+    "name": "DS3231",
+    "version": "0.0.1",
+    "description": "Extension for micro:bit to the DS3231 RTC",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "bcd": "github:gbraad/pxt-bcd#v0.1.0"
+    },
+    "files": [
+        "README.md",
+        "DS3231.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
