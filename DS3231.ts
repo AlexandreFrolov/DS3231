@@ -52,12 +52,20 @@ namespace DS3231 {
         return [hour, mins, secs]
     }
 
+    /**
+     * set time
+     */
+    //% block
     export function setTime(hour: number, mins: number, secs: number) {
         setRegister(REG_HOUR, bcd.Encode(hour))
         setRegister(REG_MINS, bcd.Encode(mins))
         setRegister(REG_SECS, bcd.Encode(secs))
     }
 
+    /**
+     * set time string
+     */
+    //% block
     export function setTimeString(input: string) {
         let time = helpers.stringSplit(input, ":")
 
@@ -68,6 +76,10 @@ namespace DS3231 {
         setTime(hour, mins, secs)
     }
 
+    /**
+     * get time string
+     */
+    //% block
     export function getTimeString(): string {
         let time = getTime()
 
