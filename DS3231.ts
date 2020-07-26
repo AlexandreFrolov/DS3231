@@ -49,7 +49,7 @@ namespace DS3231 {
      */
     //% block
     export function DecToHexText(dec_value: number): string {
-        return dec_value.toString()
+        return dec_value.toString(16)
     }
 
 
