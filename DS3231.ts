@@ -257,4 +257,15 @@ namespace DS3231 {
         setRegister(DS3231_YEAR, year)
     }
 
+
+    /**
+     * SetMonth
+     */
+    //% block
+    export function SetMonth(month: number) {
+        setRegister(DS3231_MONTH, month)
+    }
+
+
+
 }
