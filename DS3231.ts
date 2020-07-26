@@ -60,6 +60,15 @@ namespace DS3231 {
         return Math.idiv(dat, 10) * 16 + (dat % 10)
     }
 
+
+    intToHex(integer) {
+        let number = (+d).toString(16).toUpperCase()
+        if( (number.length % 2) > 0 ) { number= "0" + number }
+        return number
+    }
+
+
+
     function leftShift(a: Fx8, n: number) {
         return (a as any as number << n) as any as Fx8
     }
