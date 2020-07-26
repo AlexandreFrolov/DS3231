@@ -12,8 +12,8 @@ namespace DS3231 {
     const DS3231_SECONDS = 0x00
     const DS3231_MINUTES = 0x01
     const DS3231_HOURS   = 0x02
-    const DS3231_DAY = 0x03
-    const DS3231_DATE = 0x04
+    const DS3231_WEEKDAY = 0x03
+    const DS3231_DAY = 0x04
     const DS3231_MONTH = 0x05
     const DS3231_YEAR = 0x06
 
@@ -172,9 +172,9 @@ namespace DS3231 {
      //% month.min=1 month.max=12
      //% day.min=1 day.max=31
      //% weekday.min=1 weekday.max=7
-    export function setDate(day: number, date: number, month: number, year: number) {
+    export function setDate(weekday: number, date: number, month: number, year: number) {
+        setRegister(DS3231_WEEKDAY, weekday)
         setRegister(DS3231_DAY, day)
-        setRegister(DS3231_DATE, date)
         setRegister(DS3231_MONTH, month)
         setRegister(DS3231_YEAR, year)
     }
