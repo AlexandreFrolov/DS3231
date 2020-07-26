@@ -159,33 +159,6 @@ namespace DS3231 {
 
 
 
-
-    /**
-     * setDate
-     */
-    //% block
-    export function setDate(weekday: number, date: number, month: number, year: number) {
-        setRegister(DS3231_WEEKDAY, weekday)
-        setRegister(DS3231_DAY, day)
-        setRegister(DS3231_MONTH, month)
-        setRegister(DS3231_YEAR, year)
-    }
-
-
-    /**
-     * getDateString
-     */
-    //% block
-    export function getDateString(): string {
-        let day = getRegister(DS3231_WEEKDAY)
-        let date = getRegister(DS3231_DAY)
-        let month = getRegister(DS3231_MONTH)
-        let year = getRegister(DS3231_YEAR)
-        return `${day}:${date}:${month}:${year}`
-    }
-
-
-
     /**
      * get time
      */
