@@ -237,4 +237,16 @@ namespace DS3231 {
         return `${day}:${date}:${month}:${year}`
     }
 
+    /**
+     * setDate
+     */
+    //% blockId="DS3231_SET_DATE" block="setDate"
+    export function setDate(weekday: number, day: number, month: number, year: number) {
+        setRegister(DS3231_WEEKDAY, weekday)
+        setRegister(DS3231_DAY, day)
+        setRegister(DS3231_MONTH, month)
+        setRegister(DS3231_YEAR, year)
+    }
+
+
 }
