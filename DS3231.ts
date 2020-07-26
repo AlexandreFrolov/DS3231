@@ -60,6 +60,7 @@ namespace DS3231 {
                 returnVal = letters[rest] + returnVal;
             }
         }
+        console.log(returnVal)
         return returnVal;
     }
 
