@@ -45,10 +45,10 @@ namespace DS3231 {
 
 
     /**
-     * DecToHexText
+     * DecToHexString
      */
     //% block
-    export function DecToHexText(dec_value: number): string {
+    export function DecToHexString(dec_value: number): string {
         return dec_value.toString(16)
     }
 
