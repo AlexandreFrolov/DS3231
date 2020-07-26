@@ -158,13 +158,20 @@ namespace DS3231 {
     }
 
 
-
-
     /**
      * setDate
+     * @param year is the Year will be set, eg: 2020
+     * @param month is the Month will be set, eg: 7
+     * @param day is the Day will be set, eg: 26
+     * @param weekday is the Weekday will be set, eg: 7
      */
-    //% block
-    //% number.min=1 number.max=7 date.min=1 date.max=31 month.min=1 month.max=12 year.min=0 year.max=99
+     //% blockId="DS3231_set_Date" block="%ds|set Date: Year %year|Month %month|Day %day|WeekDay %weekday"
+     //% weight=50 blockGap=8
+     //% parts="DS3231"
+     //% year.min=1900 year.max=2200
+     //% month.min=1 month.max=12
+     //% day.min=1 day.max=31
+     //% weekday.min=1 weekday.max=7
     export function setDate(day: number, date: number, month: number, year: number) {
         setRegister(DS3231_DAY, day)
         setRegister(DS3231_DATE, date)
