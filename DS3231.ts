@@ -249,4 +249,35 @@ namespace DS3231 {
     }
 
 
+    /**
+     * SetYear
+     */
+    //% block
+    export function SetYear(year: number) {
+        setRegister(DS3231_YEAR, year)
+    }
+
+    /**
+     * SetMonth
+     */
+    //% block
+    export function SetMonth(month: number) {
+        setRegister(DS3231_MONTH, month)
+    }
+
+    /**
+     * SetDay
+     */
+    //% block
+    export function SetDay(day: number) {
+        setRegister(DS3231_DAY, day)
+    }
+
+    /**
+     * SetWeekDay
+     */
+    //% block
+    export function SetWeekDay(weekday: number) {
+        setRegister(DS3231_WEEKDAY, day)
+    }
 }
