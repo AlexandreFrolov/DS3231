@@ -266,6 +266,13 @@ namespace DS3231 {
         setRegister(DS3231_MONTH, month)
     }
 
+    /**
+     * SetDay
+     */
+    //% block
+    export function SetDay(day: number) {
+        setRegister(DS3231_DAY, day)
+    }
 
 
 }
