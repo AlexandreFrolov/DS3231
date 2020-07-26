@@ -165,13 +165,12 @@ namespace DS3231 {
      * @param day is the Day will be set, eg: 26
      * @param weekday is the Weekday will be set, eg: 7
      */
-    //% weight=50 blockGap=8
     //% parts="DS3231"
     //% year.min=1900 year.max=2200
     //% month.min=1 month.max=12
     //% day.min=1 day.max=31
     //% weekday.min=1 weekday.max=7
-    //% block
+    //% blockId="DS3231_SET_DATE" block="%ds|set Date: Year %year|Month %month|Day %day|WeekDay %weekday"
     export function setDate(weekday: number, date: number, month: number, year: number) {
         setRegister(DS3231_WEEKDAY, weekday)
         setRegister(DS3231_DAY, day)
