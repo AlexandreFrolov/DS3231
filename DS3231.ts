@@ -170,7 +170,7 @@ namespace DS3231 {
     //% month.min=1 month.max=12
     //% day.min=1 day.max=31
     //% weekday.min=1 weekday.max=7
-    //% blockId="DS3231_SET_DATE" block="%ds|set Date: Year %year|Month %month|Day %day|WeekDay %weekday"
+    //% blockId="DS3231_SET_DATE" block="set date"
     export function setDate(weekday: number, date: number, month: number, year: number) {
         setRegister(DS3231_WEEKDAY, weekday)
         setRegister(DS3231_DAY, day)
