@@ -165,11 +165,6 @@ namespace DS3231 {
      * @param day is the Day will be set, eg: 26
      * @param weekday is the Weekday will be set, eg: 7
      */
-    //% parts="DS3231"
-    //% year.min=1900 year.max=2200
-    //% month.min=1 month.max=12
-    //% day.min=1 day.max=31
-    //% weekday.min=1 weekday.max=7
     //% block
     export function setDate(weekday: number, date: number, month: number, year: number) {
         setRegister(DS3231_WEEKDAY, weekday)
