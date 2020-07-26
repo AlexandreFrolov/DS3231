@@ -43,6 +43,32 @@ namespace DS3231 {
 
     DS3231_init()
 
+
+    /**
+     * HexToDec
+     */
+    //% block
+    export function HexToDec(dat: number): number {
+        return (dat >> 4) * 10 + (dat % 16);
+    }
+
+    /**
+     * DecToHex
+     */
+    //% block
+    export function DecToHex(dat: number): number {
+        return Math.idiv(dat, 10) * 16 + (dat % 10)
+    }
+
+    function leftShift(a: Fx8, n: number) {
+        return (a as any as number << n) as any as Fx8
+    }
+    function rightShift(a: Fx8, n: number) {
+        return (a as any as number >> n) as any as Fx8
+    }
+
+
+
     function leadingZero(value: number): string {
         if (value < 10) {
             return "0" + value
