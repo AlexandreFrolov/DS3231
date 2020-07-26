@@ -274,5 +274,13 @@ namespace DS3231 {
         setRegister(DS3231_DAY, day)
     }
 
+    /**
+     * SetWeekDay
+     */
+    //% block
+    export function SetWeekDay(weekday: number) {
+        setRegister(DS3231_WEEKDAY, weekday)
+    }
+
 
 }
