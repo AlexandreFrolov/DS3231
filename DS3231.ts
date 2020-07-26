@@ -125,7 +125,7 @@ namespace DS3231 {
         let data = pins.createBuffer(1)
         data[0] = register
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
-        return pins.i2cReadNumber(DS3231_I2C_ADDR, NumberFormat.Int8LE)
+        return pins.i2cReadNumber(DS3231_I2C_ADDR, NumberFormat.UInt8LE)
     }
 
     function setRegister(register: number, value: number) {
