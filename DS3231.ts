@@ -228,7 +228,7 @@ namespace DS3231 {
     }
 
     /**
-     * DS3231Status
+     * DS3231 Status
      */
     //% block
     export function DS3231Status(): number {
