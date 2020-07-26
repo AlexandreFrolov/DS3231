@@ -105,6 +105,17 @@ namespace DS3231 {
     }
 
 
+    function Decode(value: number): number {
+        return Math.floor(value / 16) * 10 + (value % 16)
+    }
+
+    function Encode(value: number): number {
+        return Math.floor(value / 10) * 16 + (value % 10)
+    }
+
+
+
+
     function leftShift(a: Fx8, n: number) {
         return (a as any as number << n) as any as Fx8
     }
@@ -183,9 +194,9 @@ namespace DS3231 {
     //% blockId="DS3231_GET_TIME" block="getTime %u"
     //% weight=80 blockGap=8
     export function getTime(): number[] {
-        let hour = bcd.Decode(getRegister(DS3231_HOURS))
-        let mins = bcd.Decode(getRegister(DS3231_MINUTES))
-        let secs = bcd.Decode(getRegister(DS3231_SECONDS))
+        let hour = Decode(getRegister(DS3231_HOURS))
+        let mins = Decode(getRegister(DS3231_MINUTES))
+        let secs = Decode(getRegister(DS3231_SECONDS))
         return [hour, mins, secs]
     }
 
@@ -194,9 +205,9 @@ namespace DS3231 {
      */
     //% block
     export function setTime(hour: number, mins: number, secs: number) {
-        setRegister(DS3231_HOURS, bcd.Encode(hour))
-        setRegister(DS3231_MINUTES, bcd.Encode(mins))
-        setRegister(DS3231_SECONDS, bcd.Encode(secs))
+        setRegister(DS3231_HOURS, Encode(hour))
+        setRegister(DS3231_MINUTES, Encode(mins))
+        setRegister(DS3231_SECONDS, Encode(secs))
     }
 
     /**
@@ -232,7 +243,6 @@ namespace DS3231 {
      */
     //% blockId="DS3231_STATUS" block="status"
     export function Status(): number {
-//        let status = bcd.Decode(getRegister(DS3231_STATUS_ADDR))
         let status = getRegister(DS3231_STATUS_ADDR)
         return status
     }
@@ -242,7 +252,6 @@ namespace DS3231 {
      */
     //% blockId="DS3231_CONTROL" block="control"
     export function Control(): number {
-//        let ctrl = bcd.Decode(getRegister(DS3231_CONTROL_ADDR))
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
         return ctrl
     }
