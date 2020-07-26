@@ -68,10 +68,10 @@ namespace DS3231 {
     {
       if (number < 0)
       {
-        number = 0xFFFFFFFF + number + 1;
+        number = 0xFFFFFFFF + number + 1
       }
 
-      return number.toString(16).toUpperCase();
+      return number.toString(16).toUpperCase()
     }
 
 
