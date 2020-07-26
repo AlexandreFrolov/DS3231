@@ -60,6 +60,22 @@ namespace DS3231 {
         return Math.idiv(dat, 10) * 16 + (dat % 10)
     }
 
+    /**
+     * decimalToHexString
+     */
+    //% block
+    export function decimalToHexString(number)
+    {
+      if (number < 0)
+      {
+        number = 0xFFFFFFFF + number + 1;
+      }
+
+      return number.toString(16).toUpperCase();
+    }
+
+
+
     function leftShift(a: Fx8, n: number) {
         return (a as any as number << n) as any as Fx8
     }
