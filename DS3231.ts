@@ -232,7 +232,7 @@ namespace DS3231 {
     export function DateString(): string {
         let day = getRegister(DS3231_WEEKDAY)
         let date = getRegister(DS3231_DAY)
-        let month = getRegister(DS3231_MONTH) & 0x40
+        let month = getRegister(DS3231_MONTH) & 0x1F
         let year = getRegister(DS3231_YEAR) + 2000
         return `${day}:${date}:${month}:${year}`
     }
