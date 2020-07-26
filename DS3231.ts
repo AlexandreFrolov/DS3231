@@ -240,7 +240,7 @@ namespace DS3231 {
     /**
      * setDate
      */
-    //% blockId="DS3231_SET_DATE" block="setDate"
+    //% block
     export function setDate(weekday: number, day: number, month: number, year: number) {
         setRegister(DS3231_WEEKDAY, weekday)
         setRegister(DS3231_DAY, day)
