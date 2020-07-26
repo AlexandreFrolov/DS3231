@@ -230,7 +230,7 @@ namespace DS3231 {
     /**
      * status
      */
-    //% blockId="DS3231_STATUS" block="GetStatus %u"
+    //% blockId="DS3231_STATUS" block="Status %u"
     //% weight=80 blockGap=8
     export function Status(): number{
         let status = getRegister(DS3231_STATUS_ADDR)
