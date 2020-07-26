@@ -237,6 +237,15 @@ namespace DS3231 {
         return status
     }
 
+    /**
+     * DS3231 Control
+     */
+    //% blockId="DS3231_CONTROL" block="status"
+    export function Status(): number {
+//        let ctrl = bcd.Decode(getRegister(DS3231_CONTROL_ADDR))
+        let ctrl = getRegister(DS3231_CONTROL_ADDR)
+        return ctrl
+    }
 
 
 }
