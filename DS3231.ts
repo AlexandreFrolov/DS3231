@@ -160,10 +160,6 @@ namespace DS3231 {
 
     /**
      * setDate
-     * @param year is the Year will be set, eg: 2020
-     * @param month is the Month will be set, eg: 7
-     * @param day is the Day will be set, eg: 26
-     * @param weekday is the Weekday will be set, eg: 7
      */
     //% block
     export function setDate(weekday: number, date: number, month: number, year: number) {
@@ -172,7 +168,6 @@ namespace DS3231 {
         setRegister(DS3231_MONTH, month)
         setRegister(DS3231_YEAR, year)
     }
-
 
 
     /**
