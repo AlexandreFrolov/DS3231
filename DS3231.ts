@@ -46,6 +46,8 @@ namespace DS3231 {
 
     /**
      * DecToHexString
+     *
+     * https://stackoverflow.com/questions/50967455/from-decimal-to-hexadecimal-without-tostring
      */
     //% block
     export function DecToHexString(int: number, base: number): string {
