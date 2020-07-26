@@ -60,7 +60,6 @@ namespace DS3231 {
         return Math.idiv(dat, 10) * 16 + (dat % 10)
     }
 
-
     function leftShift(a: Fx8, n: number) {
         return (a as any as number << n) as any as Fx8
     }
