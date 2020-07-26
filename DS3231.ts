@@ -60,8 +60,32 @@ namespace DS3231 {
                 returnVal = letters[rest] + returnVal;
             }
         }
-        console.log(returnVal)
         return returnVal;
+    }
+
+
+    /**
+     * HexString
+     */
+    //% block
+    export function HexString(value: number): string {
+        return DecToHexString(value, 16)
+    }
+
+    /**
+     * BinaryString
+     */
+    //% block
+    export function BinaryString(value: number): string {
+        return DecToHexString(value, 2)
+    }
+
+    /**
+     * DecimalString
+     */
+    //% block
+    export function DecimalString(value: number): string {
+        return DecToHexString(value, 10)
     }
 
 
