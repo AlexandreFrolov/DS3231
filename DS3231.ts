@@ -232,7 +232,8 @@ namespace DS3231 {
      */
     //% blockId="DS3231_STATUS" block="status"
     export function Status(): number {
-        let status = bcd.Decode(getRegister(DS3231_STATUS_ADDR))
+//        let status = bcd.Decode(getRegister(DS3231_STATUS_ADDR))
+        let status = getRegister(DS3231_STATUS_ADDR)
         return status
     }
 
