@@ -254,7 +254,7 @@ namespace DS3231 {
      */
     //% block
     export function SetYear(year: number) {
-        if(year>=2000 && yaar < 3000)  {
+        if(year >= 2000)  {
           setRegister(DS3231_YEAR, year-2000)
     }
     }
