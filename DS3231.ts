@@ -196,16 +196,14 @@ namespace DS3231 {
     }
 
     /**
-     * getTimeString
+     * TimeString
      */
-    //% block
-    export function getTimeString(): string {
+    //% blockId="DS3231_TIME_STRING" block="TimeString"
+    export function TimeString(): string {
         let time = getTime()
-
         let hour = leadingZero(time[0])
         let mins = leadingZero(time[1])
         let secs = leadingZero(time[2])
-
         return `${hour}:${mins}:${secs}`
     }
 
