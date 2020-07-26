@@ -48,7 +48,7 @@ namespace DS3231 {
      * DecToHexText
      */
     //% block
-    export function DecToHexText(dec_value: number: string) {
+    export function DecToHexText(dec_value: number): string {
      return "test"
     }
 
