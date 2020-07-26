@@ -227,5 +227,16 @@ namespace DS3231 {
         return `${hour}:${mins}:${secs}`
     }
 
+    /**
+     * get status
+     */
+    //% blockId="DS3231_STATUS" block="GetStatus %u"
+    //% weight=80 blockGap=8
+    export function GetStatus(): number{
+        let status = getRegister(DS3231_STATUS_ADDR)
+        return status
+    }
+
+
 
 }
