@@ -227,5 +227,16 @@ namespace DS3231 {
         return ctrl
     }
 
+    /**
+     * DateString
+     */
+    //% blockId="DS3231_DATA_STRING" block="DateString"
+    export function DateString(): string {
+        let day = getRegister(DS3231_WEEKDAY)
+        let date = getRegister(DS3231_DAY)
+        let month = getRegister(DS3231_MONTH)
+        let year = getRegister(DS3231_YEAR)
+        return `${day}:${date}:${month}:${year}`
+    }
 
 }
