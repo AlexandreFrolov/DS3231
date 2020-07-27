@@ -223,6 +223,7 @@ namespace DS3231 {
      * status
      */
     //% block "status"
+    //% weight=50
     export function status(): number {
         let status = getRegister(DS3231_STATUS_ADDR)
         return status
@@ -232,6 +233,7 @@ namespace DS3231 {
      * set status
      */
     //% block "set status:| status $value"
+    //% weight=40
     export function setStatus(value: number) {
         let buffer = pins.createBuffer(2)
         buffer[0] = DS3231_STATUS_ADDR
@@ -240,17 +242,26 @@ namespace DS3231 {
     }
 
 
-
-
-
     /**
-     * DS3231 Control
+     * control
      */
-    //% blockId="DS3231_CONTROL" block="control"
-    export function Control(): number {
+    //% block "control"
+    //% weight=30
+    export function control(): number {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
         return ctrl
     }
 
+    /**
+     * set control
+     */
+    //% block "set control:| status $value"
+    //% weight=20
+    export function setControl(value: number) {
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_CONTROL_ADDR
+        buffer[1] = value
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
+    }
 
 }
