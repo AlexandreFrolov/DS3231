@@ -282,7 +282,7 @@ namespace DS3231 {
             setControl(0x4C)
             setRegister(DS3231_A2_HOURS, Encode(hour))
             setRegister(DS3231_A2_MINUTES, Encode(mins))
-            setRegister(DS3231_A2_DAY_DATA, 0x80)
+            setRegister(DS3231_A2_DAY_DATA, 0x40)
             setStatus(0x88)
             setControl(0x4E)
         }
