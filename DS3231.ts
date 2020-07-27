@@ -242,7 +242,7 @@ namespace DS3231 {
     /**
      * TimeString
      */
-    //% blockId="DS3231_TIME_STRING" block="TimeString"
+    //% blockId="DS3231_TIME_STRING" block="current time (string)"
     //% weight=80
     export function TimeString(): string {
         let time = getTime()
