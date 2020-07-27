@@ -220,6 +220,7 @@ namespace DS3231 {
 
         let rtn_val = msb_temp << 8
         rtn_val |= lsb_temp
+        rtn_val = rtn_val >> 6
 
         return rtn_val
 //        return `${msb_temp}:${lsb_temp}`
