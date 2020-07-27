@@ -106,11 +106,11 @@ namespace DS3231 {
 
 
     function Decode(value: number): number {
-        return Math.floor(value/16)*10 + (value % 16)
+        return Math.floor(value / 16) * 10 + (value % 16)
     }
 
     function Encode(value: number): number {
-        return Math.floor(value/10)*16 + (value % 10)
+        return Math.floor(value / 10) * 16 + (value % 10)
     }
 
 
@@ -179,6 +179,20 @@ namespace DS3231 {
         setRegister(DS3231_HOURS, Encode(hour))
         setRegister(DS3231_MINUTES, Encode(mins))
         setRegister(DS3231_SECONDS, Encode(secs))
+    }
+
+    /**
+     * setTimeString
+     */
+    //% block
+    export function setTimeString(input: string) {
+        let time = helpers.stringSplit(input, ":")
+
+        let hour = parseInt(time[0]) % 24;
+        let mins = parseInt(time[1]) % 60;
+        let secs = parseInt(time[2]) % 60;
+
+        setTime(hour, mins, secs)
     }
 
     /**
