@@ -247,7 +247,7 @@ namespace DS3231 {
      */
     //% block="set DS3231 date:|weekday $weekday day $day month $month year $year"
     //% weight=80
-    //% weekday.min=0 weekday.max=7 day.min=0 day.max=31 month.min=0 month.max=12 year.min=2000 year.max=3000
+    //% weekday.min=0 weekday.max=7 day.min=0 day.max=31 month.min=0 month.max=12 year.min=2000 year.max=2500
     export function setDate(weekday: number, day: number, month: number, year: number) {
         setRegister(DS3231_WEEKDAY, weekday)
         setRegister(DS3231_DAY, day)
