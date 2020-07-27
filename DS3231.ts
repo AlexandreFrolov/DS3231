@@ -153,15 +153,6 @@ namespace DS3231 {
     }
 
 
-    /**
-     * get time
-     */
-    function getTime(): number[] {
-        let hour = Decode(getRegister(DS3231_HOURS))
-        let mins = Decode(getRegister(DS3231_MINUTES))
-        let secs = Decode(getRegister(DS3231_SECONDS))
-        return [hour, mins, secs]
-    }
 
     /**
      * setTime
@@ -177,6 +168,15 @@ namespace DS3231 {
         }
     }
 
+    /**
+     * get time
+     */
+    function getTime(): number[] {
+        let hour = Decode(getRegister(DS3231_HOURS))
+        let mins = Decode(getRegister(DS3231_MINUTES))
+        let secs = Decode(getRegister(DS3231_SECONDS))
+        return [hour, mins, secs]
+    }
 
     /**
      * TimeString
