@@ -153,19 +153,6 @@ namespace DS3231 {
     }
 
     /**
-     * DateString
-     */
-    //% blockId="DS3231_DATA_STRING" block="DateString"
-    export function DateString(): string {
-        let day = getRegister(DS3231_WEEKDAY)
-        let date = getRegister(DS3231_DAY)
-        let month = getRegister(DS3231_MONTH) & 0x1F
-        let year = getRegister(DS3231_YEAR) + 2000
-        return `${day}:${date}:${month}:${year}`
-    }
-
-
-    /**
      * SetYear
      */
     //% block
@@ -257,5 +244,17 @@ namespace DS3231 {
         }
     }
 
+    /**
+     * DateString
+     */
+    //% block="current data (string)"
+    //% weight=70
+    export function DateString(): string {
+        let day = getRegister(DS3231_WEEKDAY)
+        let date = getRegister(DS3231_DAY)
+        let month = getRegister(DS3231_MONTH) & 0x1F
+        let year = getRegister(DS3231_YEAR) + 2000
+        return `${day}:${date}:${month}:${year}`
+    }
 
 }
