@@ -179,11 +179,11 @@ namespace DS3231 {
     }
 
     /**
-     * TimeString
+     * timeString
      */
     //% block="current time (string)"
     //% weight=90
-    export function TimeString(): string {
+    export function timeString(): string {
         let time = getTime()
         let hour = leadingZero(time[0])
         let mins = leadingZero(time[1])
