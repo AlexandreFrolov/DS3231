@@ -266,5 +266,13 @@ namespace DS3231 {
         }
     }
 
+    /**
+     * clear alarms
+     */
+    //% block="clear alarms"
+    //% weight=55
+    export function clearAlarms() {
+        setControl(0)
+    }
 
 }
