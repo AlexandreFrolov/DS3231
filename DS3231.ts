@@ -211,10 +211,10 @@ namespace DS3231 {
     }
 
     /**
-     * get temperature string
+     * get temperature
      */
     //% block
-    export function getTemperatureString(): number {
+    export function getTemperature(): number {
         let msb_temp = getRegister(DS3231_MSB_TEMP)
         let lsb_temp = getRegister(DS3231_LSB_TEMP)
 
