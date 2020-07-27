@@ -212,11 +212,12 @@ namespace DS3231 {
     }
 
     /**
-     * time
+     * get time
      */
-    //% blockId="DS3231_TIME"
-    //% block="Time %u"
-    export function Time(): number[] {
+    //% blockId="DS3231_GET_TIME"
+    //% block="getTime %u"
+    //% weight=80 blockGap=8
+    export function getTime(): number[] {
         let hour = Decode(getRegister(DS3231_HOURS))
         let mins = Decode(getRegister(DS3231_MINUTES))
         let secs = Decode(getRegister(DS3231_SECONDS))
