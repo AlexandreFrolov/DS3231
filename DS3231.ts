@@ -125,26 +125,6 @@ namespace DS3231 {
 
 
     /**
-     * DS3231 Status
-     */
-    //% blockId="DS3231_STATUS" block="status"
-    export function Status(): number {
-        let status = getRegister(DS3231_STATUS_ADDR)
-        return status
-    }
-
-    /**
-     * DS3231 Control
-     */
-    //% blockId="DS3231_CONTROL" block="control"
-    export function Control(): number {
-        let ctrl = getRegister(DS3231_CONTROL_ADDR)
-        return ctrl
-    }
-
-
-
-    /**
      * setTime
      */
     //% block="set time:|hour $hour mins $mins secs $secs"
@@ -221,6 +201,41 @@ namespace DS3231 {
         return rtn_val
     }
 
+
+    /**
+     * alarm1
+     */
+    //% block="set alarm1:|hour $hour mins $mins secs $secs"
+    //% weight=60
+    //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
+    export function alarm1(hour: number, mins: number, secs: number) {
+        if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
+            setRegister(DS3231_A1_HOURS, Encode(hour))
+            setRegister(DS3231_A1_MINUTES, Encode(mins))
+            setRegister(DS3231_A1_SECONDS, Encode(secs))
+            setRegister(DS3231_A1_DAY_DATA, 0x80)
+
+        }
+    }
+
+
+    /**
+     * status
+     */
+    //% block "status"
+    export function status(): number {
+        let status = getRegister(DS3231_STATUS_ADDR)
+        return status
+    }
+
+    /**
+     * DS3231 Control
+     */
+    //% blockId="DS3231_CONTROL" block="control"
+    export function Control(): number {
+        let ctrl = getRegister(DS3231_CONTROL_ADDR)
+        return ctrl
+    }
 
 
 }
