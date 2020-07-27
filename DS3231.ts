@@ -184,20 +184,6 @@ namespace DS3231 {
     /**
      * TimeString
      */
-    //% block
-    export function TimeString(input: string) {
-        let time = helpers.stringSplit(input, ":")
-
-        let hour = parseInt(time[0]) % 24;
-        let mins = parseInt(time[1]) % 60;
-        let secs = parseInt(time[2]) % 60;
-
-        setTime(hour, mins, secs)
-    }
-
-    /**
-     * TimeString
-     */
     //% blockId="DS3231_TIME_STRING" block="TimeString"
     export function TimeString(): string {
         let time = getTime()
