@@ -229,6 +229,21 @@ namespace DS3231 {
     }
 
     /**
+     * set status
+     */
+    //% block "set status:| status $value"
+    export function setStatus(value: number) {
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_STATUS_ADDR
+        buffer[1] = value
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
+    }
+
+
+
+
+
+    /**
      * DS3231 Control
      */
     //% blockId="DS3231_CONTROL" block="control"
