@@ -67,6 +67,7 @@ namespace DS3231 {
      * HexString
      */
     //% block
+    //% groups=['DS3231', 'others']
     export function HexString(value: number): string {
         return DecToHexString(value, 16)
     }
@@ -75,6 +76,7 @@ namespace DS3231 {
      * BinaryString
      */
     //% block
+    //% groups=['DS3231', 'others']
     export function BinaryString(value: number): string {
         return DecToHexString(value, 2)
     }
@@ -83,6 +85,7 @@ namespace DS3231 {
      * DecimalString
      */
     //% block
+    //% groups=['DS3231', 'others']
     export function DecimalString(value: number): string {
         return DecToHexString(value, 10)
     }
