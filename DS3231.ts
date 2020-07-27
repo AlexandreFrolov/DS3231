@@ -276,7 +276,8 @@ namespace DS3231 {
     //% block "alarm1 accerted"
     //% weight=58
     export function alarm1Accerted(): number {
-        return getRegister(DS3231_STATUS_ADDR) & 0x01
+        let rc = getRegister(DS3231_STATUS_ADDR)
+        return (rc & 0x01)
     }
 
     /**
