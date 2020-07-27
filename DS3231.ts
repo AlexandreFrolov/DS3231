@@ -35,10 +35,10 @@ namespace DS3231 {
 
 
     function DS3231_init() {
-        let buf = pins.createBuffer(2)
-        buf[0] = DS3231_CONTROL_ADDR
-        buf[1] = 0x4C
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buf)
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_CONTROL_ADDR
+        buffer[1] = 0x4C
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
     }
 
     DS3231_init()
@@ -88,42 +88,17 @@ namespace DS3231 {
     }
 
 
-    /**
-     * Dec
-     */
-    //% block
-    export function Dec(dat: number): number {
-        return (dat >> 4) * 10 + (dat % 16);
-    }
-
-    /**
-     * Hex
-     */
-    //% block
-    export function Hex(dat: number): number {
-        return Math.idiv(dat, 10) * 16 + (dat % 10)
-    }
-
-
-    function Decode(value: number): number {
-        return Math.floor(value / 16) * 10 + (value % 16)
-    }
+// ==========================================================================
 
     function Encode(value: number): number {
         return Math.floor(value / 10) * 16 + (value % 10)
     }
 
-
-
-
-    function leftShift(a: Fx8, n: number) {
-        return (a as any as number << n) as any as Fx8
-    }
-    function rightShift(a: Fx8, n: number) {
-        return (a as any as number >> n) as any as Fx8
+    function Decode(value: number): number {
+        return Math.floor(value / 16) * 10 + (value % 16)
     }
 
-
+// ==========================================================================
 
     function leadingZero(value: number): string {
         if (value < 10) {
@@ -146,6 +121,7 @@ namespace DS3231 {
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
     }
 
+// ==========================================================================
 
     /**
      * get temperature string
