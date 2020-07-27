@@ -216,11 +216,11 @@ namespace DS3231 {
 
 
     /**
-     * TimeString
+     * timeString
      */
     //% block="current time (string)"
     //% weight=90
-    export function TimeString(): string {
+    export function timeString(): string {
         let time = getTime()
         let hour = leadingZero(time[0])
         let mins = leadingZero(time[1])
@@ -245,11 +245,11 @@ namespace DS3231 {
     }
 
     /**
-     * DateString
+     * dateString
      */
     //% block="current data (string)"
     //% weight=70
-    export function DateString(): string {
+    export function dateString(): string {
         let day = getRegister(DS3231_WEEKDAY)
         let date = getRegister(DS3231_DAY)
         let month = getRegister(DS3231_MONTH) & 0x1F
