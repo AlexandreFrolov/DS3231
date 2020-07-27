@@ -134,42 +134,6 @@ namespace DS3231 {
     }
 
 
-
-    /**
-     * get time
-     */
-    //% blockId="DS3231_GET_TIME" block="getTime %u"
-    //% weight=80 blockGap=8
-    export function getTime(): number[] {
-        let hour = Decode(getRegister(DS3231_HOURS))
-        let mins = Decode(getRegister(DS3231_MINUTES))
-        let secs = Decode(getRegister(DS3231_SECONDS))
-        return [hour, mins, secs]
-    }
-
-    /**
-     * setTime
-     */
-    //% block
-    export function setTime(hour: number, mins: number, secs: number) {
-        setRegister(DS3231_HOURS, Encode(hour))
-        setRegister(DS3231_MINUTES, Encode(mins))
-        setRegister(DS3231_SECONDS, Encode(secs))
-    }
-
-
-    /**
-     * TimeString
-     */
-    //% blockId="DS3231_TIME_STRING" block="TimeString"
-    export function TimeString(): string {
-        let time = getTime()
-        let hour = leadingZero(time[0])
-        let mins = leadingZero(time[1])
-        let secs = leadingZero(time[2])
-        return `${hour}:${mins}:${secs}`
-    }
-
     /**
      * DS3231 Status
      */
@@ -246,6 +210,43 @@ namespace DS3231 {
     export function SetWeekDay(weekday: number) {
         setRegister(DS3231_WEEKDAY, weekday)
     }
+
+    /**
+     * get time
+     */
+    //% blockId="DS3231_GET_TIME"
+    //% block="getTime %u"
+    export function getTime(): number[] {
+        let hour = Decode(getRegister(DS3231_HOURS))
+        let mins = Decode(getRegister(DS3231_MINUTES))
+        let secs = Decode(getRegister(DS3231_SECONDS))
+        return [hour, mins, secs]
+    }
+
+    /**
+     * setTime
+     */
+    //% block
+    export function setTime(hour: number, mins: number, secs: number) {
+        setRegister(DS3231_HOURS, Encode(hour))
+        setRegister(DS3231_MINUTES, Encode(mins))
+        setRegister(DS3231_SECONDS, Encode(secs))
+    }
+
+
+    /**
+     * TimeString
+     */
+    //% blockId="DS3231_TIME_STRING" block="TimeString"
+    export function TimeString(): string {
+        let time = getTime()
+        let hour = leadingZero(time[0])
+        let mins = leadingZero(time[1])
+        let secs = leadingZero(time[2])
+        return `${hour}:${mins}:${secs}`
+    }
+
+
 
 
 }
