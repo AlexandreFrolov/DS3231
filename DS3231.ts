@@ -164,17 +164,6 @@ namespace DS3231 {
         return `${day}:${date}:${month}:${year}`
     }
 
-    /**
-     * setDate
-     */
-    //% block
-    export function setDate(weekday: number, day: number, month: number, year: number) {
-        setRegister(DS3231_WEEKDAY, weekday)
-        setRegister(DS3231_DAY, day)
-        setRegister(DS3231_MONTH, month)
-        setRegister(DS3231_YEAR, year)
-    }
-
 
     /**
      * SetYear
@@ -243,7 +232,7 @@ namespace DS3231 {
      * TimeString
      */
     //% block="current time (string)"
-    //% weight=80
+    //% weight=90
     export function TimeString(): string {
         let time = getTime()
         let hour = leadingZero(time[0])
@@ -253,6 +242,18 @@ namespace DS3231 {
     }
 
 
+    /**
+     * setDate
+     */
+    //% block="set DS3231 date:|weekday $weekday day $day month $month year $year"
+    //% weight=80
+    //% weekday.min=0 weekday.max=7 day.min=0 day.max=31 month.min=0 month.max=12 year.min=2000 year.max=3000
+    export function setDate(weekday: number, day: number, month: number, year: number) {
+        setRegister(DS3231_WEEKDAY, weekday)
+        setRegister(DS3231_DAY, day)
+        setRegister(DS3231_MONTH, month)
+        setRegister(DS3231_YEAR, year)
+    }
 
 
 }
