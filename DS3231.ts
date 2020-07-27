@@ -243,6 +243,7 @@ namespace DS3231 {
      * TimeString
      */
     //% blockId="DS3231_TIME_STRING" block="TimeString"
+    //% weight=80
     export function TimeString(): string {
         let time = getTime()
         let hour = leadingZero(time[0])
