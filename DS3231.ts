@@ -23,8 +23,8 @@ namespace DS3231 {
     const DS3231_A1_DAY_DATA = 0x0A
 
     const DS3231_A2_MINUTES = 0x0B
-    const DS3231_A2_HOURS   = 0x0D
-    const DS3231_A2_DAY_DATA = 0x0A
+    const DS3231_A2_HOURS   = 0x0C
+    const DS3231_A2_DAY_DATA = 0x0D
 
     const DS3231_CONTROL_ADDR = 0x0E
     const DS3231_STATUS_ADDR = 0x0F
