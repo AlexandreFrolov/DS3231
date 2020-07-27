@@ -247,7 +247,7 @@ namespace DS3231 {
     /**
      * dateString
      */
-    //% block="current data (string)"
+    //% block="current date (string)"
     //% weight=70
     export function dateString(): string {
         let day = getRegister(DS3231_WEEKDAY)
