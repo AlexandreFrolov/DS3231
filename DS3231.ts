@@ -2,7 +2,7 @@
 /**
  * DS3231 block
  */
-//% weight=100 color=#33ff33 icon="\uf042" block="DS3231 RTC"
+//% weight=100 color=#00cc00 icon="\uf042" block="DS3231 RTC"
 namespace DS3231 {
 
     const DS3231_I2C_ADDR=0x68
