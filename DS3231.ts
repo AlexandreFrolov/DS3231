@@ -89,18 +89,18 @@ namespace DS3231 {
 
 
     /**
-     * HexToDec
+     * Dec
      */
     //% block
-    export function HexToDec(dat: number): number {
+    export function Dec(dat: number): number {
         return (dat >> 4) * 10 + (dat % 16);
     }
 
     /**
-     * DecToHex
+     * Hex
      */
     //% block
-    export function DecToHex(dat: number): number {
+    export function Hex(dat: number): number {
         return Math.idiv(dat, 10) * 16 + (dat % 10)
     }
 
