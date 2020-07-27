@@ -123,16 +123,6 @@ namespace DS3231 {
 
 // ==========================================================================
 
-    /**
-     * get temperature string
-     */
-    //% block
-    export function getTemperatureString(): string {
-        let msb_temp = getRegister(DS3231_MSB_TEMP)
-        let lsb_temp = getRegister(DS3231_LSB_TEMP)
-        return `${msb_temp}:${lsb_temp}`
-    }
-
 
     /**
      * DS3231 Status
@@ -219,5 +209,22 @@ namespace DS3231 {
         let year = getRegister(DS3231_YEAR) + 2000
         return `${day}:${date}:${month}:${year}`
     }
+
+    /**
+     * get temperature string
+     */
+    //% block
+    export function getTemperatureString(): number {
+        let msb_temp = getRegister(DS3231_MSB_TEMP)
+        let lsb_temp = getRegister(DS3231_LSB_TEMP)
+
+        let rtn_val = msb_temp << 8
+        rtn_val |= lsb_temp
+
+        return rtn_val
+//        return `${msb_temp}:${lsb_temp}`
+    }
+
+
 
 }
