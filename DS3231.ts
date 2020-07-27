@@ -221,8 +221,9 @@ namespace DS3231 {
 
 
         let rtn_val = (msb_temp << 8)
-        rtn_val =| lsb_temp
-        return rtn_val/256
+        rtn_val = (rtn_val| lsb_temp)
+        rtn_val = rtn_val / 4
+        return rtn_val
 
 
 
