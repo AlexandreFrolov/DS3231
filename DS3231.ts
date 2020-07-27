@@ -245,11 +245,11 @@ namespace DS3231 {
     }
 
     /**
-     * getDateString
+     * DateString
      */
     //% block="current data (string)"
     //% weight=70
-    export function getDateString(): string {
+    export function DateString(): string {
         let day = getRegister(DS3231_WEEKDAY)
         let date = getRegister(DS3231_DAY)
         let month = getRegister(DS3231_MONTH) & 0x1F
