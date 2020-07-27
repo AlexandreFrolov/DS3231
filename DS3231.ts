@@ -227,7 +227,7 @@ namespace DS3231 {
     /**
      * setTime
      */
-    //% block="set DS3231 time"
+    //% block="set DS3231 time |hour: $hour mins: $mins secs: $secs"
     //% weight=3
     export function setTime(hour: number, mins: number, secs: number) {
         setRegister(DS3231_HOURS, Encode(hour))
