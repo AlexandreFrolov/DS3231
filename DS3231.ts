@@ -260,13 +260,13 @@ namespace DS3231 {
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
     export function alarm1(hour: number, mins: number, secs: number) {
         if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
-            setControl(0x04)
+            setControl(0x4C)
             setRegister(DS3231_A1_HOURS, Encode(hour))
             setRegister(DS3231_A1_MINUTES, Encode(mins))
             setRegister(DS3231_A1_SECONDS, Encode(secs))
             setRegister(DS3231_A1_DAY_DATA, 0x80)
-            setStatus(0)
-            setControl(0x05)
+            setStatus(0x88)
+            setControl(0x4D)
         }
     }
 
@@ -276,7 +276,7 @@ namespace DS3231 {
     //% block="clear alarms"
     //% weight=55
     export function clearAlarms() {
-        setControl(0)
+        setControl(0x4C)
     }
 
 }
