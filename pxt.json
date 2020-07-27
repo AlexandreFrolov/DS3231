@@ -1,7 +1,7 @@
 {
     "name": "DS3231",
-    "version": "0.1.1",
-    "description": "Extension for micro:bit to the DS3231 RTC",
+    "version": "0.1.2",
+    "description": "Package for DS3231 I2C real-time clock (RTC)",
     "license": "Apache",
     "dependencies": {
         "core": "*"
