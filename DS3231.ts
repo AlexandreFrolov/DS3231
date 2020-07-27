@@ -106,11 +106,11 @@ namespace DS3231 {
 
 
     function Decode(value: number): number {
-        return Math.floor(value / 16) * 10 + (value % 16)
+        return Math.floor(value/16)*10 + (value % 16)
     }
 
     function Encode(value: number): number {
-        return Math.floor(value / 10) * 16 + (value % 10)
+        return Math.floor(value/10)*16 + (value % 10)
     }
 
 
@@ -182,10 +182,10 @@ namespace DS3231 {
     }
 
     /**
-     * setTimeString
+     * TimeString
      */
     //% block
-    export function setTimeString(input: string) {
+    export function TimeString(input: string) {
         let time = helpers.stringSplit(input, ":")
 
         let hour = parseInt(time[0]) % 24;
