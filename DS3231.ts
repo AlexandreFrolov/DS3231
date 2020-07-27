@@ -203,23 +203,6 @@ namespace DS3231 {
 
 
     /**
-     * alarm1
-     */
-    //% block="set alarm1:|hour $hour mins $mins secs $secs"
-    //% weight=60
-    //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
-    export function alarm1(hour: number, mins: number, secs: number) {
-        if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
-            setRegister(DS3231_A1_HOURS, Encode(hour))
-            setRegister(DS3231_A1_MINUTES, Encode(mins))
-            setRegister(DS3231_A1_SECONDS, Encode(secs))
-            setRegister(DS3231_A1_DAY_DATA, 0x80)
-
-        }
-    }
-
-
-    /**
      * status
      */
     //% block "status"
@@ -263,5 +246,25 @@ namespace DS3231 {
         buffer[1] = value
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
     }
+
+
+    /**
+     * alarm1
+     */
+    //% block="set alarm1:|hour $hour mins $mins secs $secs"
+    //% weight=60
+    //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
+    export function alarm1(hour: number, mins: number, secs: number) {
+        if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
+            setControl(0x04)
+            setRegister(DS3231_A1_HOURS, Encode(hour))
+            setRegister(DS3231_A1_MINUTES, Encode(mins))
+            setRegister(DS3231_A1_SECONDS, Encode(secs))
+            setRegister(DS3231_A1_DAY_DATA, 0x80)
+            setStatus(0)
+            setControl(0x05)
+        }
+    }
+
 
 }
