@@ -214,7 +214,7 @@ namespace DS3231 {
     /**
      * currentTime
      */
-    //% blockId="DS3231_TIME"
+    //% blockId="DS3231_CURRENT_TIME"
     //% block="currentTime %u"
     //% weight=80 blockGap=8
     export function currentTime(): number[] {
