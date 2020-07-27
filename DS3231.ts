@@ -91,7 +91,8 @@ namespace DS3231 {
 // ==========================================================================
 
     function Encode(value: number): number {
-        return Math.floor(value / 10) * 16 + (value % 10)
+//        return Math.floor(value / 10) * 16 + (value % 10)
+        return (Math.floor(value / 10) << 4) + (value % 10)
     }
 
     function Decode(value: number): number {
