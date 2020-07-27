@@ -249,10 +249,12 @@ namespace DS3231 {
     //% weight=80
     //% weekday.min=0 weekday.max=7 day.min=0 day.max=31 month.min=0 month.max=12 year.min=2000 year.max=2500
     export function setDate(weekday: number, day: number, month: number, year: number) {
-        setRegister(DS3231_WEEKDAY, weekday)
-        setRegister(DS3231_DAY, day)
-        setRegister(DS3231_MONTH, month)
-        setRegister(DS3231_YEAR, year)
+        if(weekday >= 0 && weekday <= 7 && day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= 2000 && year < 3000) {
+            setRegister(DS3231_WEEKDAY, weekday)
+            setRegister(DS3231_DAY, day)
+            setRegister(DS3231_MONTH, month)
+            setRegister(DS3231_YEAR, year-2000)
+        }
     }
 
 
