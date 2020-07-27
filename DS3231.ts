@@ -271,6 +271,26 @@ namespace DS3231 {
     }
 
     /**
+     * alarm1Accerted
+     */
+    //% block "alarm1 accerted"
+    //% weight=58
+    export function alarm1Accerted(): number {
+        return getRegister(DS3231_STATUS_ADDR) & 0x01
+    }
+
+    /**
+     * alarm2Accerted
+     */
+    //% block "alarm2 accerted"
+    //% weight=57
+    export function alarm2Accerted(): number {
+        return getRegister(DS3231_STATUS_ADDR) & 0x02
+    }
+
+
+
+    /**
      * clear alarms
      */
     //% block="clear alarms"
