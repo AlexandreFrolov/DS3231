@@ -3,10 +3,18 @@
 ## MakeCode DS3231 RTC Extension for micro:bit
 
 Author: Alexandre Frolov
-Date: 28.07.2020
 
 
 ![](ds3231.jpg)
+
+
+## Add extension
+
+Copy and paste this to Extension search box:
+https://github.com/AlexandreFrolov/DS3231
+
+## Usage:
+
 
 
 * set Time hours, minutes and seconds
