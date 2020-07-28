@@ -2,7 +2,7 @@
     "name": "DS3231",
     "version": "0.1.2",
     "description": "Package for I2C real-time clock (RTC) DS3231",
-    "license": "Apache",
+    "license": "MIT",
     "dependencies": {
         "core": "*"
     },
