@@ -13,20 +13,8 @@ Author: Alexandre Frolov
 Copy and paste this to Extension search box:
 https://github.com/AlexandreFrolov/DS3231
 
-## Usage:
+## Date
 
-
-
-* set Time hours, minutes and seconds
-
-```blocks
-setTime(hour: number, mins: number, secs: number)
-
-input.onButtonPressed(Button.A, function () {
-    DS3231.setTime(11, 10, 50)
-})
-
-```
 
 * set Date day, month and year
 
@@ -35,6 +23,29 @@ setDate(weekday: number, day: number, month: number, year: number)
 
 input.onButtonPressed(Button.A, function () {
     DS3231.setDate(2, 28, 7, 2020)
+})
+
+```
+
+* show Date as a String
+
+```blocks
+function dateString()
+
+function doTest () {
+    OLED.writeStringNewLine(DS3231.dateString())
+}
+```
+
+## Time
+
+* set Time hours, minutes and seconds
+
+```blocks
+setTime(hour: number, mins: number, secs: number)
+
+input.onButtonPressed(Button.A, function () {
+    DS3231.setTime(11, 10, 50)
 })
 
 ```
@@ -49,15 +60,6 @@ function doTest () {
 }
 ```
 
-* show Date as a String
-
-```blocks
-function dateString()
-
-function doTest () {
-    OLED.writeStringNewLine(DS3231.dateString())
-}
-```
 
 * show hours as a numbers
 
@@ -167,7 +169,17 @@ input.onButtonPressed(Button.AB, function () {
 })
 ```
 
+## Temperature
 
+* temperature
+
+```blocks
+temperature()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.temperature())
+}
+```
 
 
 ## License
