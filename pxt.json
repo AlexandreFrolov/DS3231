@@ -13,5 +13,6 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": true
+    "public": true,
+    "installedVersion": "github:makecode-extensions/DS3231#v1.0.1"
 }
