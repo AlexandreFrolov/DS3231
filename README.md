@@ -182,7 +182,7 @@ function doTest () {
 
 ## License
 
-Apache
+MIT
 
 ## Supported targets
 
