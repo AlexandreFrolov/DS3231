@@ -2,6 +2,10 @@
 
 ## DS3231 RTC Extension blocks for micro:bit
 
+
+![](ds3231.jpg)
+
+
 * set Time hours, minutes and seconds
 
 ```blocks
