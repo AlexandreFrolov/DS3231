@@ -243,18 +243,6 @@ namespace DS3231 {
     }
 
     /**
-     * temperature
-     */
-    //% block "temperature"
-    export function temperature(): number {
-        let msb_temp = getRegister(DS3231_MSB_TEMP)
-        let lsb_temp = getRegister(DS3231_LSB_TEMP)
-        return msb_temp + (lsb_temp >> 6) * 0.25
-    }
-
-
-
-    /**
      * alarm1
      */
     //% block="set alarm1:|hour $hour mins $mins secs $secs"
@@ -292,8 +280,6 @@ namespace DS3231 {
         }
     }
 
-
-
     /**
      * clear alarms
      */
@@ -302,5 +288,18 @@ namespace DS3231 {
     export function clearAlarms() {
         setControl(0x4C)
     }
+
+
+    /**
+     * temperature
+     */
+    //% block "temperature"
+    //% weight=5
+    export function temperature(): number {
+        let msb_temp = getRegister(DS3231_MSB_TEMP)
+        let lsb_temp = getRegister(DS3231_LSB_TEMP)
+        return msb_temp + (lsb_temp >> 6) * 0.25
+    }
+
 
 }
