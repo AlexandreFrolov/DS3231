@@ -116,6 +116,7 @@ namespace DS3231 {
      */
     //% block
     //% weight=0
+    //% advanced=true
     export function HexString(value: number): string {
         return DecToHexString(value, 16)
     }
@@ -125,6 +126,7 @@ namespace DS3231 {
      */
     //% block
     //% weight=0
+    //% advanced=true
     export function BinaryString(value: number): string {
         return DecToHexString(value, 2)
     }
@@ -134,6 +136,7 @@ namespace DS3231 {
      */
     //% block
     //% weight=0
+    //% advanced=true
     export function DecimalString(value: number): string {
         return DecToHexString(value, 10)
     }
