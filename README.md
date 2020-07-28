@@ -95,14 +95,77 @@ input.onButtonPressed(Button.AB, function () {
 })
 ```
 
-
-
-
-
-* show Time and Date as a numbers
+* show hours as a numbers
 
 ```blocks
+hours()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.hours())
+}
 ```
+
+* show minutes as a numbers
+
+```blocks
+minutes()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.minutes())
+}
+```
+
+* show seconds as a numbers
+
+```blocks
+seconds()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.seconds())
+}
+```
+
+* show year as a numbers
+
+```blocks
+year()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.year())
+}
+```
+
+* show month as a numbers
+
+```blocks
+month()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.month())
+}
+```
+
+* show day as a numbers
+
+```blocks
+day()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.day())
+}
+```
+
+* show week day as a numbers
+
+```blocks
+weekday()
+
+function doTest () {
+    OLED.writeNumNewLine(DS3231.weekday())
+}
+```
+
+
 
 ## License
 
