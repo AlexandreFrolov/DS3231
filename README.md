@@ -164,8 +164,6 @@ clearAlarms()
 
 input.onButtonPressed(Button.AB, function () {
     DS3231.clearAlarms()
-    basic.clearScreen()
-    doTest()
 })
 ```
 
