@@ -35,21 +35,24 @@ namespace DS3231 {
 
 
     /**
-     * status
+     * set control
      */
-    //% block "status"
+    //% block "set control:| status $value"
     //% weight=50
     //% advanced=true
-    export function status(): number {
-        let status = getRegister(DS3231_STATUS_ADDR)
-        return status
+    export function setControl(value: number) {
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_CONTROL_ADDR
+        buffer[1] = value
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
     }
+
 
     /**
      * set status
      */
     //% block "set status:| status $value"
-    //% weight=40
+    //% weight=45
     //% advanced=true
     export function setStatus(value: number) {
         let buffer = pins.createBuffer(2)
@@ -63,7 +66,7 @@ namespace DS3231 {
      * control
      */
     //% block "control"
-    //% weight=30
+    //% weight=40
     //% advanced=true
     export function control(): number {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
@@ -71,18 +74,15 @@ namespace DS3231 {
     }
 
     /**
-     * set control
+     * status
      */
-    //% block "set control:| status $value"
-    //% weight=20
+    //% block "status"
+    //% weight=35
     //% advanced=true
-    export function setControl(value: number) {
-        let buffer = pins.createBuffer(2)
-        buffer[0] = DS3231_CONTROL_ADDR
-        buffer[1] = value
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
+    export function status(): number {
+        let status = getRegister(DS3231_STATUS_ADDR)
+        return status
     }
-
 
 
     function DS3231_init() {
@@ -197,6 +197,23 @@ namespace DS3231 {
     }
 
     /**
+     * setDate
+     */
+    //% block="set date:|weekday $weekday day $day month $month year $year"
+    //% weight=90
+    //% inlineInputMode=inline
+    //% weekday.min=0 weekday.max=7 day.min=0 day.max=31 month.min=0 month.max=12 year.min=2000 year.max=2100
+    export function setDate(weekday: number, day: number, month: number, year: number) {
+        if(weekday >= 0 && weekday <= 7 && day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= 2000 && year < 2100) {
+            setRegister(DS3231_WEEKDAY, weekday)
+            setRegister(DS3231_DAY, day)
+            setRegister(DS3231_MONTH, month)
+            setRegister(DS3231_YEAR, year-2000)
+        }
+    }
+
+
+    /**
      * getTime
      */
     function getTime(): number[] {
@@ -210,7 +227,7 @@ namespace DS3231 {
      * timeString
      */
     //% block="current time (string)"
-    //% weight=90
+    //% weight=80
     export function timeString(): string {
         let time = getTime()
         let hour = leadingZero(time[0])
@@ -219,22 +236,6 @@ namespace DS3231 {
         return `${hour}:${mins}:${secs}`
     }
 
-
-    /**
-     * setDate
-     */
-    //% block="set date:|weekday $weekday day $day month $month year $year"
-    //% weight=80
-    //% inlineInputMode=inline
-    //% weekday.min=0 weekday.max=7 day.min=0 day.max=31 month.min=0 month.max=12 year.min=2000 year.max=2100
-    export function setDate(weekday: number, day: number, month: number, year: number) {
-        if(weekday >= 0 && weekday <= 7 && day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= 2000 && year < 2100) {
-            setRegister(DS3231_WEEKDAY, weekday)
-            setRegister(DS3231_DAY, day)
-            setRegister(DS3231_MONTH, month)
-            setRegister(DS3231_YEAR, year-2000)
-        }
-    }
 
     /**
      * dateString
