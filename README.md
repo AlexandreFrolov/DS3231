@@ -1,9 +1,6 @@
 # DS3231
 
- DS3231 RTC Extension blocks for micro:bit
-
-
-## RTC DS3231
+## DS3231 RTC Extension blocks for micro:bit
 
 * set Time hours, minutes and seconds
 
