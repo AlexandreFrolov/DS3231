@@ -260,16 +260,14 @@ namespace DS3231 {
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
     export function alarm1(hour: number, mins: number, secs: number) {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
-        if(ctrl & 0x04) {
-            if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
-                setControl(0x4C)
-                setRegister(DS3231_A1_HOURS, Encode(hour))
-                setRegister(DS3231_A1_MINUTES, Encode(mins))
-                setRegister(DS3231_A1_SECONDS, Encode(secs))
-                setRegister(DS3231_A1_DAY_DATA, 0x80)
-                setStatus(0x88)
-                setControl(0x4D)
-            }
+        if((ctrl & 0x04) && hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
+            setControl(0x4C)
+            setRegister(DS3231_A1_HOURS, Encode(hour))
+            setRegister(DS3231_A1_MINUTES, Encode(mins))
+            setRegister(DS3231_A1_SECONDS, Encode(secs))
+            setRegister(DS3231_A1_DAY_DATA, 0x80)
+            setStatus(0x88)
+            setControl(0x4D)
         }
     }
 
