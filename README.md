@@ -2,7 +2,7 @@
 
 ## MakeCode DS3231 RTC Extension for micro:bit
 
-Author: Alexaxndre Frolov
+Author: Alexandre Frolov
 Date: 28.07.2020
 
 
