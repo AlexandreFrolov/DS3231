@@ -37,6 +37,8 @@ function doTest () {
 
 ## Time
 
+Currently support 24-hour mode only.
+
 * set Time hours, minutes and seconds
 
 ```blocks
