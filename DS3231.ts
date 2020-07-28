@@ -262,7 +262,7 @@ namespace DS3231 {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
         let alarmEnabled = ctrl & 0x04
 
-        if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
+        if((alarmEnabled == 0) && hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
             setControl(0x4C)
             setRegister(DS3231_A1_HOURS, Encode(hour))
             setRegister(DS3231_A1_MINUTES, Encode(mins))
