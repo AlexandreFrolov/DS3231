@@ -279,7 +279,8 @@ namespace DS3231 {
     //% weight=59
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59
     export function alarm2(hour: number, mins: number) {
-        if(hour > 0 && hour < 24 && mins > 0 && mins < 60) {
+        let ctrl = getRegister(DS3231_CONTROL_ADDR)
+        if((ctrl & 0x04) && hour > 0 && hour < 24 && mins > 0 && mins < 60) {
             setControl(0x4C)
             setRegister(DS3231_A2_HOURS, Encode(hour))
             setRegister(DS3231_A2_MINUTES, Encode(mins))
