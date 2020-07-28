@@ -278,10 +278,41 @@ namespace DS3231 {
         return `${day}:${date}:${month}:${year}`
     }
 
+    /**
+     * Year
+     */
+    //% block="year"
+    //% weight=68
+    export function year(): number {
+        return getRegister(DS3231_YEAR) + 2000
+    }
 
+    /**
+     * Month
+     */
+    //% block="month"
+    //% weight=66
+    export function month(): number {
+        return getRegister(DS3231_MONTH) & 0x1F
+    }
 
+    /**
+     * WeekDay
+     */
+    //% block="week day"
+    //% weight=66
+    export function weekday(): number {
+        return getRegister(DS3231_DAY)
+    }
 
-
+    /**
+     * Day
+     */
+    //% block="day"
+    //% weight=64
+    export function day(): number {
+        return getRegister(DS3231_WEEKDAY)
+    }
 
 
 
