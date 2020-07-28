@@ -297,15 +297,6 @@ namespace DS3231 {
     }
 
     /**
-     * WeekDay
-     */
-    //% block="week day"
-    //% weight=66
-    export function weekday(): number {
-        return getRegister(DS3231_DAY)
-    }
-
-    /**
      * Day
      */
     //% block="day"
@@ -314,6 +305,14 @@ namespace DS3231 {
         return getRegister(DS3231_WEEKDAY)
     }
 
+    /**
+     * WeekDay
+     */
+    //% block="week day"
+    //% weight=62
+    export function weekday(): number {
+        return getRegister(DS3231_DAY)
+    }
 
 
     /**
