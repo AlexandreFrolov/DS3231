@@ -59,42 +59,6 @@ function doTest () {
 }
 ```
 
-* set Alarm 1
-
-```blocks
-alarm1(hour: number, mins: number, secs: number)
-
-input.onButtonPressed(Button.B, function () {
-    DS3231.alarm1(11, 10, 30)
-    doTest()
-    basic.showIcon(IconNames.Diamond)
-})
-```
-
-* set Alarm 2
-
-```blocks
-alarm2(hour: number, mins: number)
-
-input.onButtonPressed(Button.B, function () {
-    DS3231.alarm2(11, 11)
-    doTest()
-    basic.showIcon(IconNames.Diamond)
-})
-```
-
-* clear Alarms
-
-```blocks
-clearAlarms()
-
-input.onButtonPressed(Button.AB, function () {
-    DS3231.clearAlarms()
-    basic.clearScreen()
-    doTest()
-})
-```
-
 * show hours as a numbers
 
 ```blocks
@@ -164,6 +128,45 @@ function doTest () {
     OLED.writeNumNewLine(DS3231.weekday())
 }
 ```
+
+## Alarms
+
+* set Alarm 1
+
+```blocks
+alarm1(hour: number, mins: number, secs: number)
+
+input.onButtonPressed(Button.B, function () {
+    DS3231.alarm1(11, 10, 30)
+    doTest()
+    basic.showIcon(IconNames.Diamond)
+})
+```
+
+* set Alarm 2
+
+```blocks
+alarm2(hour: number, mins: number)
+
+input.onButtonPressed(Button.B, function () {
+    DS3231.alarm2(11, 11)
+    doTest()
+    basic.showIcon(IconNames.Diamond)
+})
+```
+
+* clear Alarms
+
+```blocks
+clearAlarms()
+
+input.onButtonPressed(Button.AB, function () {
+    DS3231.clearAlarms()
+    basic.clearScreen()
+    doTest()
+})
+```
+
 
 
 
