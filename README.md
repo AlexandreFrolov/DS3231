@@ -1,6 +1,9 @@
 # DS3231
 
-## DS3231 RTC Extension blocks for micro:bit
+## MakeCode DS3231 RTC Extension for micro:bit
+
+Author: Alexaxndre Frolov
+Date: 28.07.2020
 
 
 ![](ds3231.jpg)
