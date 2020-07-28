@@ -249,9 +249,10 @@ namespace DS3231 {
     export function temperature(): number {
         let msb_temp = getRegister(DS3231_MSB_TEMP)
         let lsb_temp = getRegister(DS3231_LSB_TEMP)
-        let temp = msb_temp + (lsb_temp >> 6) * 0.25
-        return temp
+        let rtn_val = msb_temp + (lsb_temp >> 6) * 0.25
+        return rtn_val
     }
+
 
 
     /**
