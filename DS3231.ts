@@ -366,6 +366,7 @@ namespace DS3231 {
     /**
      * temperature
      */
+    //% help=DS3231/temperature
     //% block "temperature"
     //% weight=5
     export function temperature(): number {
