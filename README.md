@@ -68,7 +68,8 @@ input.onButtonPressed(Button.B, function () {
 })
 ```
 
-* clear clearAlarms
+* clear Alarms
+
 ```blocks
 clearAlarms()
 
