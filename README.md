@@ -2,8 +2,6 @@
 
 ## MakeCode DS3231 RTC Extension for micro:bit
 
-Author: Alexandre Frolov
-
 
 ![](ds3231.jpg)
 
