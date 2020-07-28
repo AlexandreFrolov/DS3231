@@ -226,7 +226,7 @@ namespace DS3231 {
     /**
      * timeString
      */
-    //% block="current time (string)"
+    //% block="time (string)"
     //% weight=80
     export function timeString(): string {
         let time = getTime()
@@ -238,9 +238,37 @@ namespace DS3231 {
 
 
     /**
+     * Seconds
+     */
+    //% block="seconds"
+    //% weight=78
+    export function seconds(): number {
+        return Decode(getRegister(DS3231_SECONDS))
+    }
+
+    /**
+     * Minutes
+     */
+    //% block="minutes"
+    //% weight=76
+    export function minutes(): number {
+        return Decode(getRegister(DS3231_MINUTES))
+    }
+
+    /**
+     * Hours
+     */
+    //% block="hours"
+    //% weight=74
+    export function hours(): number {
+        return Decode(getRegister(DS3231_HOURS))
+    }
+
+
+    /**
      * dateString
      */
-    //% block="current date (string)"
+    //% block="date (string)"
     //% weight=70
     export function dateString(): string {
         let day = getRegister(DS3231_WEEKDAY)
@@ -249,6 +277,13 @@ namespace DS3231 {
         let year = getRegister(DS3231_YEAR) + 2000
         return `${day}:${date}:${month}:${year}`
     }
+
+
+
+
+
+
+
 
     /**
      * alarm1
