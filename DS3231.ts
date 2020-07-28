@@ -134,7 +134,7 @@ namespace DS3231 {
     //% weight=100
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
     export function setTime(hour: number, mins: number, secs: number) {
-        if(hour > 0 && hour < 24 && mins > 0 && mins < 60 && secs > 0 && secs < 60 ) {
+        if(hour >= 0 && hour <= 23 && mins >= 0 && mins <= 59 && secs >= 0 && secs <= 59 ) {
             setRegister(DS3231_HOURS, Encode(hour))
             setRegister(DS3231_MINUTES, Encode(mins))
             setRegister(DS3231_SECONDS, Encode(secs))
