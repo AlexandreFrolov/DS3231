@@ -126,63 +126,17 @@ namespace DS3231 {
         }
     }
 
-
-    /**
-     * getTime
-     */
-    function getTime(): number[] {
-        let hour = bcdToDec(getRegister(DS3231_HOURS))
-        let mins = bcdToDec(getRegister(DS3231_MINUTES))
-        let secs = bcdToDec(getRegister(DS3231_SECONDS))
-        return [hour, mins, secs]
-    }
-
     /**
      * timeString
      */
     //% block="time (string)"
     //% weight=80
     export function timeString(): string {
-
-//        let time = getTime()
-//        let hour = bcdToDec(getRegister(DS3231_HOURS))
-//        let mins = bcdToDec(getRegister(DS3231_MINUTES))
-//        let secs = bcdToDec(getRegister(DS3231_SECONDS))
-
         let hour = addLeadingZero(bcdToDec(getRegister(DS3231_HOURS)))
         let mins = addLeadingZero(bcdToDec(getRegister(DS3231_MINUTES)))
         let secs = addLeadingZero(bcdToDec(getRegister(DS3231_SECONDS)))
         return `${hour}:${mins}:${secs}`
     }
-
-
-    /**
-     * Seconds
-     */
-    //% block="seconds"
-    //% weight=78
-    export function seconds(): number {
-        return bcdToDec(getRegister(DS3231_SECONDS))
-    }
-
-    /**
-     * Minutes
-     */
-    //% block="minutes"
-    //% weight=76
-    export function minutes(): number {
-        return bcdToDec(getRegister(DS3231_MINUTES))
-    }
-
-    /**
-     * Hours
-     */
-    //% block="hours"
-    //% weight=74
-    export function hours(): number {
-        return bcdToDec(getRegister(DS3231_HOURS))
-    }
-
 
     /**
      * dateString
@@ -198,10 +152,37 @@ namespace DS3231 {
     }
 
     /**
+     * Seconds
+     */
+    //% block="seconds"
+    //% weight=68
+    export function seconds(): number {
+        return bcdToDec(getRegister(DS3231_SECONDS))
+    }
+
+    /**
+     * Minutes
+     */
+    //% block="minutes"
+    //% weight=67
+    export function minutes(): number {
+        return bcdToDec(getRegister(DS3231_MINUTES))
+    }
+
+    /**
+     * Hours
+     */
+    //% block="hours"
+    //% weight=65
+    export function hours(): number {
+        return bcdToDec(getRegister(DS3231_HOURS))
+    }
+
+    /**
      * Year
      */
     //% block="year"
-    //% weight=68
+    //% weight=64
     export function year(): number {
         return getRegister(DS3231_YEAR) + 2000
     }
@@ -210,7 +191,7 @@ namespace DS3231 {
      * Month
      */
     //% block="month"
-    //% weight=66
+    //% weight=63
     export function month(): number {
         return getRegister(DS3231_MONTH) & 0x1F
     }
@@ -219,7 +200,7 @@ namespace DS3231 {
      * Day
      */
     //% block="day"
-    //% weight=64
+    //% weight=62
     export function day(): number {
         return getRegister(DS3231_DAY)
     }
@@ -228,7 +209,7 @@ namespace DS3231 {
      * WeekDay
      */
     //% block="week day"
-    //% weight=62
+    //% weight=61
     export function weekday(): number {
         return getRegister(DS3231_WEEKDAY)
     }
