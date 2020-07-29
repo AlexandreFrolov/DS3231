@@ -1,6 +1,6 @@
 {
     "name": "DS3231",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "description": "Package for I2C real-time clock (RTC) DS3231",
     "license": "MIT",
     "dependencies": {
@@ -8,7 +8,8 @@
     },
     "files": [
         "README.md",
-        "DS3231.ts"
+        "DS3231.ts",
+        "_locales/ru/DS3231-strings.json"
     ],
     "testFiles": [
         "test.ts"
