@@ -1,6 +1,6 @@
 {
-    "DS3231.setTime|block": "Установить время:|часы $hour минуты $mins секунды $secs",
-    "DS3231.setDate|block": "Установить дату:|день недели $weekday число $day месяц $month год $year",
+    "DS3231.setTime|block": "время:|часы $hour минуты $mins секунды $secs",
+    "DS3231.setDate|block": "дата:|день недели $weekday число $day месяц $month год $year",
     "DS3231.timeString|block": "время (текстовая строка)",
     "DS3231.dateString|block": "дата (текстовая строка)",
     "DS3231.seconds|block": "секунды",
@@ -10,7 +10,7 @@
     "DS3231.month|block": "месяц",
     "DS3231.day|block": "число",
     "DS3231.weekday|block": "день недели",
-    "DS3231.alarm1|block": "Установить будильник 1:|часы $hour минуты $mins секунды $secs",
-    "DS3231.alarm2|block": "Установить будильник 2:|часы $hour минуты $mins",
+    "DS3231.alarm1|block": "будильник 1:|часы $hour минуты $mins секунды $secs",
+    "DS3231.alarm2|block": "будильник 2:|часы $hour минуты $mins",
     "DS3231.temperature|block": "температура С"
 }
