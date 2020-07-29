@@ -92,62 +92,9 @@ namespace DS3231 {
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
     }
 
-
 // ==========================================================================
 // Export Functions
 // ==========================================================================
-
-    /**
-     * set control
-     */
-    //% block "set control:| status $value"
-    //% weight=50
-    //% advanced=true
-    export function setControl(value: number) {
-        let buffer = pins.createBuffer(2)
-        buffer[0] = DS3231_CONTROL_ADDR
-        buffer[1] = value
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
-    }
-
-
-    /**
-     * set status
-     */
-    //% block "set status:| status $value"
-    //% weight=45
-    //% advanced=true
-    export function setStatus(value: number) {
-        let buffer = pins.createBuffer(2)
-        buffer[0] = DS3231_STATUS_ADDR
-        buffer[1] = value
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
-    }
-
-
-    /**
-     * control
-     */
-    //% block "control"
-    //% weight=40
-    //% advanced=true
-    export function control(): number {
-        let ctrl = getRegister(DS3231_CONTROL_ADDR)
-        return ctrl
-    }
-
-    /**
-     * status
-     */
-    //% block "status"
-    //% weight=35
-    //% advanced=true
-    export function status(): number {
-        let status = getRegister(DS3231_STATUS_ADDR)
-        return status
-    }
-
-
 
     /**
      * setTime
@@ -341,6 +288,62 @@ namespace DS3231 {
         let lsb_temp = getRegister(DS3231_LSB_TEMP)
         return msb_temp + (lsb_temp >> 6) * 0.25
     }
+
+
+
+
+    /**
+     * set control
+     */
+    //% block "set control:| status $value"
+    //% weight=50
+    //% advanced=true
+    export function setControl(value: number) {
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_CONTROL_ADDR
+        buffer[1] = value
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
+    }
+
+
+    /**
+     * set status
+     */
+    //% block "set status:| status $value"
+    //% weight=45
+    //% advanced=true
+    export function setStatus(value: number) {
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_STATUS_ADDR
+        buffer[1] = value
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
+    }
+
+
+    /**
+     * control
+     */
+    //% block "control"
+    //% weight=40
+    //% advanced=true
+    export function control(): number {
+        let ctrl = getRegister(DS3231_CONTROL_ADDR)
+        return ctrl
+    }
+
+    /**
+     * status
+     */
+    //% block "status"
+    //% weight=35
+    //% advanced=true
+    export function status(): number {
+        let status = getRegister(DS3231_STATUS_ADDR)
+        return status
+    }
+
+
+
 
     /**
      * hexString
