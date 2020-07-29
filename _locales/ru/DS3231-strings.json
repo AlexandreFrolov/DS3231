@@ -12,6 +12,5 @@
     "DS3231.weekday|block": "день недели",
     "DS3231.alarm1|block": "будильник 1:|часы $hour минуты $mins секунды $secs",
     "DS3231.alarm2|block": "будильник 2:|часы $hour минуты $mins",
-    "DS3231.temperature|block": "температура",
-    "DS3231.clearAlarms|block": "сбросить все будильники"
+    "DS3231.temperature|block": "температура"
 }
