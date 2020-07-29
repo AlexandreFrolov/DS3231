@@ -34,6 +34,69 @@ namespace DS3231 {
     const DS3231_LSB_TEMP = 0x12
 
 
+    function DS3231_init() {
+        let buffer = pins.createBuffer(2)
+        buffer[0] = DS3231_CONTROL_ADDR
+        buffer[1] = 0x4C
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
+    }
+
+    DS3231_init()
+    setStatus(0x08)
+
+
+    /**
+     * decToHexString
+     *
+     * https://stackoverflow.com/questions/50967455/from-decimal-to-hexadecimal-without-tostring
+     */
+    function decToHexString(int: number, base: number): string {
+        let letters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        let returnVal = "";
+        if (base > 1 && base < 37) {
+            while (int != 0) {
+                let rest = int % base;
+                int = Math.floor(int / base);
+                returnVal = letters[rest] + returnVal;
+            }
+        }
+        return returnVal;
+    }
+
+    function decToBcd(value: number): number {
+        return (Math.floor(value / 10) << 4) + (value % 10)
+    }
+
+    function bcdToDec(value: number): number {
+        return Math.floor(value / 16) * 10 + (value % 16)
+    }
+
+    function addLeadingZero(value: number): string {
+        if (value < 10) {
+            return "0" + value
+        }
+        return "" + value
+    }
+
+    function getRegister(register: number): number {
+        let data = pins.createBuffer(1)
+        data[0] = register
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
+        return pins.i2cReadNumber(DS3231_I2C_ADDR, NumberFormat.UInt8LE)
+    }
+
+    function setRegister(register: number, value: number) {
+        let data = pins.createBuffer(2)
+        data[0] = register
+        data[1] = value
+        pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
+    }
+
+
+// ==========================================================================
+// Export Functions
+// ==========================================================================
+
     /**
      * set control
      */
@@ -84,100 +147,6 @@ namespace DS3231 {
         return status
     }
 
-
-    function DS3231_init() {
-        let buffer = pins.createBuffer(2)
-        buffer[0] = DS3231_CONTROL_ADDR
-        buffer[1] = 0x4C
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
-    }
-
-    DS3231_init()
-    setStatus(0x08)
-
-
-    /**
-     * decToHexString
-     *
-     * https://stackoverflow.com/questions/50967455/from-decimal-to-hexadecimal-without-tostring
-     */
-    function decToHexString(int: number, base: number): string {
-        let letters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        let returnVal = "";
-        if (base > 1 && base < 37) {
-            while (int != 0) {
-                let rest = int % base;
-                int = Math.floor(int / base);
-                returnVal = letters[rest] + returnVal;
-            }
-        }
-        return returnVal;
-    }
-
-
-    /**
-     * hexString
-     */
-    //% block
-    //% weight=0
-    //% advanced=true
-    export function hexString(value: number): string {
-        return decToHexString(value, 16)
-    }
-
-    /**
-     * binaryString
-     */
-    //% block
-    //% weight=0
-    //% advanced=true
-    export function binaryString(value: number): string {
-        return decToHexString(value, 2)
-    }
-
-    /**
-     * decimalString
-     */
-    //% block
-    //% weight=0
-    //% advanced=true
-    export function decimalString(value: number): string {
-        return decToHexString(value, 10)
-    }
-
-
-// ==========================================================================
-
-    function decToBcd(value: number): number {
-        return (Math.floor(value / 10) << 4) + (value % 10)
-    }
-
-    function bcdToDec(value: number): number {
-        return Math.floor(value / 16) * 10 + (value % 16)
-    }
-
-    function addLeadingZero(value: number): string {
-        if (value < 10) {
-            return "0" + value
-        }
-        return "" + value
-    }
-
-    function getRegister(register: number): number {
-        let data = pins.createBuffer(1)
-        data[0] = register
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
-        return pins.i2cReadNumber(DS3231_I2C_ADDR, NumberFormat.UInt8LE)
-    }
-
-    function setRegister(register: number, value: number) {
-        let data = pins.createBuffer(2)
-        data[0] = register
-        data[1] = value
-        pins.i2cWriteBuffer(DS3231_I2C_ADDR, data)
-    }
-
-// ==========================================================================
 
 
     /**
@@ -371,6 +340,36 @@ namespace DS3231 {
         let msb_temp = getRegister(DS3231_MSB_TEMP)
         let lsb_temp = getRegister(DS3231_LSB_TEMP)
         return msb_temp + (lsb_temp >> 6) * 0.25
+    }
+
+    /**
+     * hexString
+     */
+    //% block
+    //% weight=0
+    //% advanced=true
+    export function hexString(value: number): string {
+        return decToHexString(value, 16)
+    }
+
+    /**
+     * binaryString
+     */
+    //% block
+    //% weight=0
+    //% advanced=true
+    export function binaryString(value: number): string {
+        return decToHexString(value, 2)
+    }
+
+    /**
+     * decimalString
+     */
+    //% block
+    //% weight=0
+    //% advanced=true
+    export function decimalString(value: number): string {
+        return decToHexString(value, 10)
     }
 
 
