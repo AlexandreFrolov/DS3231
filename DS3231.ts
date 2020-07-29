@@ -1,6 +1,7 @@
 
 /**
  * DS3231 block
+ *
  */
 //% weight=100 color=#00cc00 icon="\uf017" block="RTC DS3231"
 namespace DS3231 {
