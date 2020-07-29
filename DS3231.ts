@@ -1,7 +1,6 @@
 
 /**
  * DS3231 block
- *
  */
 //% weight=100 color=#00cc00 icon="\uf017" block="RTC DS3231"
 namespace DS3231 {
@@ -33,6 +32,10 @@ namespace DS3231 {
     const DS3231_AGING_OFFSET = 0x10
     const DS3231_MSB_TEMP = 0x11
     const DS3231_LSB_TEMP = 0x12
+
+
+    const DS3231_LSB_TEST = 0x12
+
 
 
     function DS3231_init() {
