@@ -1,4 +1,5 @@
 {
     "DS3231.setTime|block": "Установить время:|часы $hour минуты $mins секунды $secs",
-    "DS3231.setDate|block": "Установить дату:|день недели $weekday число $day месяц $month год $year"
+    "DS3231.setDate|block": "Установить дату:|день недели $weekday число $day месяц $month год $year",
+    "DS3231.timeString|block": "Время (текстовая строка)"
 }
