@@ -5,6 +5,7 @@
 
 ![](ds3231.jpg)
 
+https://www.maximintegrated.com/en/products/analog/real-time-clocks/DS3231.html
 
 ## Add extension
 
