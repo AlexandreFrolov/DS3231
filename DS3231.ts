@@ -148,11 +148,11 @@ namespace DS3231 {
 
 // ==========================================================================
 
-    function Encode(value: number): number {
+    function decToBcd(value: number): number {
         return (Math.floor(value / 10) << 4) + (value % 10)
     }
 
-    function Decode(value: number): number {
+    function bcdToDec(value: number): number {
         return Math.floor(value / 16) * 10 + (value % 16)
     }
 
@@ -190,9 +190,9 @@ namespace DS3231 {
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
     export function setTime(hour: number, mins: number, secs: number) {
         if(hour >= 0 && hour <= 23 && mins >= 0 && mins <= 59 && secs >= 0 && secs <= 59 ) {
-            setRegister(DS3231_HOURS, Encode(hour))
-            setRegister(DS3231_MINUTES, Encode(mins))
-            setRegister(DS3231_SECONDS, Encode(secs))
+            setRegister(DS3231_HOURS, decToBcd(hour))
+            setRegister(DS3231_MINUTES, decToBcd(mins))
+            setRegister(DS3231_SECONDS, decToBcd(secs))
         }
     }
 
@@ -217,9 +217,9 @@ namespace DS3231 {
      * getTime
      */
     function getTime(): number[] {
-        let hour = Decode(getRegister(DS3231_HOURS))
-        let mins = Decode(getRegister(DS3231_MINUTES))
-        let secs = Decode(getRegister(DS3231_SECONDS))
+        let hour = bcdToDec(getRegister(DS3231_HOURS))
+        let mins = bcdToDec(getRegister(DS3231_MINUTES))
+        let secs = bcdToDec(getRegister(DS3231_SECONDS))
         return [hour, mins, secs]
     }
 
@@ -243,7 +243,7 @@ namespace DS3231 {
     //% block="seconds"
     //% weight=78
     export function seconds(): number {
-        return Decode(getRegister(DS3231_SECONDS))
+        return bcdToDec(getRegister(DS3231_SECONDS))
     }
 
     /**
@@ -252,7 +252,7 @@ namespace DS3231 {
     //% block="minutes"
     //% weight=76
     export function minutes(): number {
-        return Decode(getRegister(DS3231_MINUTES))
+        return bcdToDec(getRegister(DS3231_MINUTES))
     }
 
     /**
@@ -261,7 +261,7 @@ namespace DS3231 {
     //% block="hours"
     //% weight=74
     export function hours(): number {
-        return Decode(getRegister(DS3231_HOURS))
+        return bcdToDec(getRegister(DS3231_HOURS))
     }
 
 
@@ -325,9 +325,9 @@ namespace DS3231 {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
         if((ctrl & 0x04) && hour >= 0 && hour <= 23 && mins >= 0 && mins <= 59 && secs >= 0 && secs <= 59 ) {
             setControl(0x4C)
-            setRegister(DS3231_A1_HOURS, Encode(hour))
-            setRegister(DS3231_A1_MINUTES, Encode(mins))
-            setRegister(DS3231_A1_SECONDS, Encode(secs))
+            setRegister(DS3231_A1_HOURS, decToBcd(hour))
+            setRegister(DS3231_A1_MINUTES, decToBcd(mins))
+            setRegister(DS3231_A1_SECONDS, decToBcd(secs))
             setRegister(DS3231_A1_DAY_DATA, 0x80)
             setStatus(0x88)
             setControl(0x4D)
@@ -345,8 +345,8 @@ namespace DS3231 {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
         if((ctrl & 0x04) && hour >= 0 && hour <= 23 && mins >= 0 && mins <= 59) {
             setControl(0x4C)
-            setRegister(DS3231_A2_HOURS, Encode(hour))
-            setRegister(DS3231_A2_MINUTES, Encode(mins))
+            setRegister(DS3231_A2_HOURS, decToBcd(hour))
+            setRegister(DS3231_A2_MINUTES, decToBcd(mins))
             setRegister(DS3231_A2_DAY_DATA, 0x80)
             setStatus(0x88)
             setControl(0x4E)
