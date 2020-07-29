@@ -156,7 +156,7 @@ namespace DS3231 {
         return Math.floor(value / 16) * 10 + (value % 16)
     }
 
-    function leadingZero(value: number): string {
+    function addLeadingZero(value: number): string {
         if (value < 10) {
             return "0" + value
         }
@@ -228,9 +228,9 @@ namespace DS3231 {
     //% weight=80
     export function timeString(): string {
         let time = getTime()
-        let hour = leadingZero(time[0])
-        let mins = leadingZero(time[1])
-        let secs = leadingZero(time[2])
+        let hour = addLeadingZero(time[0])
+        let mins = addLeadingZero(time[1])
+        let secs = addLeadingZero(time[2])
         return `${hour}:${mins}:${secs}`
     }
 
