@@ -9,5 +9,5 @@
     "DS3231.year|block": "год",
     "DS3231.month|block": "месяц",
     "DS3231.day|block": "число",
-    "DS3231.weekday|block": "день недели (1-7)"
+    "DS3231.weekday|block": "день недели"
 }
