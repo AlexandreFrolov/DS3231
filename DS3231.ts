@@ -116,32 +116,32 @@ namespace DS3231 {
 
 
     /**
-     * HexString
+     * hexString
      */
     //% block
     //% weight=0
     //% advanced=true
-    export function HexString(value: number): string {
+    export function hexString(value: number): string {
         return decToHexString(value, 16)
     }
 
     /**
-     * BinaryString
+     * binaryString
      */
     //% block
     //% weight=0
     //% advanced=true
-    export function BinaryString(value: number): string {
+    export function binaryString(value: number): string {
         return decToHexString(value, 2)
     }
 
     /**
-     * DecimalString
+     * decimalString
      */
     //% block
     //% weight=0
     //% advanced=true
-    export function DecimalString(value: number): string {
+    export function decimalString(value: number): string {
         return decToHexString(value, 10)
     }
 
