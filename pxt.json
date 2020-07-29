@@ -8,6 +8,7 @@
     },
     "files": [
         "README.md",
+        "_locales/ru/DS3231-strings.json",
         "DS3231.ts"
     ],
     "testFiles": [
