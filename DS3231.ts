@@ -97,11 +97,11 @@ namespace DS3231 {
 
 
     /**
-     * DecToHexString
+     * decToHexString
      *
      * https://stackoverflow.com/questions/50967455/from-decimal-to-hexadecimal-without-tostring
      */
-    function DecToHexString(int: number, base: number): string {
+    function decToHexString(int: number, base: number): string {
         let letters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         let returnVal = "";
         if (base > 1 && base < 37) {
@@ -122,7 +122,7 @@ namespace DS3231 {
     //% weight=0
     //% advanced=true
     export function HexString(value: number): string {
-        return DecToHexString(value, 16)
+        return decToHexString(value, 16)
     }
 
     /**
@@ -132,7 +132,7 @@ namespace DS3231 {
     //% weight=0
     //% advanced=true
     export function BinaryString(value: number): string {
-        return DecToHexString(value, 2)
+        return decToHexString(value, 2)
     }
 
     /**
@@ -142,7 +142,7 @@ namespace DS3231 {
     //% weight=0
     //% advanced=true
     export function DecimalString(value: number): string {
-        return DecToHexString(value, 10)
+        return decToHexString(value, 10)
     }
 
 
