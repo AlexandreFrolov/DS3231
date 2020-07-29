@@ -143,10 +143,15 @@ namespace DS3231 {
     //% block="time (string)"
     //% weight=80
     export function timeString(): string {
-        let time = getTime()
-        let hour = addLeadingZero(time[0])
-        let mins = addLeadingZero(time[1])
-        let secs = addLeadingZero(time[2])
+
+//        let time = getTime()
+//        let hour = bcdToDec(getRegister(DS3231_HOURS))
+//        let mins = bcdToDec(getRegister(DS3231_MINUTES))
+//        let secs = bcdToDec(getRegister(DS3231_SECONDS))
+
+        let hour = addLeadingZero(bcdToDec(getRegister(DS3231_HOURS)))
+        let mins = addLeadingZero(bcdToDec(getRegister(DS3231_MINUTES)))
+        let secs = addLeadingZero(bcdToDec(getRegister(DS3231_SECONDS)))
         return `${hour}:${mins}:${secs}`
     }
 
