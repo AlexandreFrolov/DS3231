@@ -9,8 +9,5 @@
     "DS3231.year|block": "год",
     "DS3231.month|block": "месяц",
     "DS3231.day|block": "число",
-    "DS3231.weekday|block": "день недели",
-    "DS3231.alarm1|block": "таймер 1:|часы $hour минуты $mins секунды $secs",
-    "DS3231.alarm2|block": "таймер 2:|часы $hour минуты $mins",
-    "DS3231.temperature|block": "температура"
+    "DS3231.weekday|block": "день недели"
 }
