@@ -156,8 +156,6 @@ namespace DS3231 {
         return Math.floor(value / 16) * 10 + (value % 16)
     }
 
-// ==========================================================================
-
     function leadingZero(value: number): string {
         if (value < 10) {
             return "0" + value
