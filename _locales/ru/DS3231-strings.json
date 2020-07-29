@@ -1,3 +1,3 @@
 {
-    "DS3231.setTime|block": "Установить время:|hour: $hour mins: $mins secs: $secs"
+    "DS3231.setTime|block": "Установить время:|hour $hour mins $mins secs $secs"
 }
