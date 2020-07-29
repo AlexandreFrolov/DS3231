@@ -92,8 +92,7 @@ namespace DS3231 {
     /**
      * setTime
      */
-    //% block="set time:|hour $hour mins $mins secs $secs"
-    //% blockId="DS3231_set_time"
+    //% block="set time:|hour: $hour mins: $mins secs: $secs"
     //% weight=100
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
     export function setTime(hour: number, mins: number, secs: number) {
