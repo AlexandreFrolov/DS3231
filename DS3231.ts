@@ -34,10 +34,6 @@ namespace DS3231 {
     const DS3231_LSB_TEMP = 0x12
 
 
-    const DS3231_LSB_TEST = 0x12
-
-
-
     function DS3231_init() {
         let buffer = pins.createBuffer(2)
         buffer[0] = DS3231_CONTROL_ADDR
@@ -214,6 +210,18 @@ namespace DS3231 {
 
 
     /**
+     * temperature
+     */
+    //% block "temperature"
+    //% weight=60
+    export function temperature(): number {
+        let msb_temp = getRegister(DS3231_MSB_TEMP)
+        let lsb_temp = getRegister(DS3231_LSB_TEMP)
+        return msb_temp + (lsb_temp >> 6) * 0.25
+    }
+
+
+    /**
      * alarm1
      */
     //% block="set alarm1:|hour $hour mins $mins secs $secs"
@@ -260,17 +268,6 @@ namespace DS3231 {
         setControl(0x4C)
     }
 
-
-    /**
-     * temperature
-     */
-    //% block "temperature"
-    //% weight=47
-    export function temperature(): number {
-        let msb_temp = getRegister(DS3231_MSB_TEMP)
-        let lsb_temp = getRegister(DS3231_LSB_TEMP)
-        return msb_temp + (lsb_temp >> 6) * 0.25
-    }
 
 // ==========================================================================
 // Advanced Export Functions
@@ -354,6 +351,5 @@ namespace DS3231 {
     export function decimalString(value: number): string {
         return decToHexString(value, 10)
     }
-
 
 }
