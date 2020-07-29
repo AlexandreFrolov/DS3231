@@ -213,7 +213,7 @@ namespace DS3231 {
      * alarm1
      */
     //% block="set alarm1:|hour $hour mins $mins secs $secs"
-    //% weight=60
+    //% weight=50
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59 secs.min=0 secs.max=59
     export function alarm1(hour: number, mins: number, secs: number) {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
@@ -233,7 +233,7 @@ namespace DS3231 {
      * alarm2
      */
     //% block="set alarm2:|hour $hour mins $mins"
-    //% weight=59
+    //% weight=49
     //% hour.min=0 hour.max=23 mins.min=0 mins.max=59
     export function alarm2(hour: number, mins: number) {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
@@ -251,7 +251,7 @@ namespace DS3231 {
      * clear alarms
      */
     //% block="clear alarms"
-    //% weight=55
+    //% weight=48
     export function clearAlarms() {
         setControl(0x4C)
     }
@@ -262,21 +262,22 @@ namespace DS3231 {
      */
     //% help=DS3231/temperature
     //% block "temperature"
-    //% weight=5
+    //% weight=47
     export function temperature(): number {
         let msb_temp = getRegister(DS3231_MSB_TEMP)
         let lsb_temp = getRegister(DS3231_LSB_TEMP)
         return msb_temp + (lsb_temp >> 6) * 0.25
     }
 
-
-
+// ==========================================================================
+// Advanced Export Functions
+// ==========================================================================
 
     /**
      * set control
      */
     //% block "set control:| status $value"
-    //% weight=50
+    //% weight=40
     //% advanced=true
     export function setControl(value: number) {
         let buffer = pins.createBuffer(2)
@@ -285,12 +286,11 @@ namespace DS3231 {
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
     }
 
-
     /**
      * set status
      */
     //% block "set status:| status $value"
-    //% weight=45
+    //% weight=39
     //% advanced=true
     export function setStatus(value: number) {
         let buffer = pins.createBuffer(2)
@@ -299,12 +299,11 @@ namespace DS3231 {
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, buffer)
     }
 
-
     /**
      * control
      */
     //% block "control"
-    //% weight=40
+    //% weight=38
     //% advanced=true
     export function control(): number {
         let ctrl = getRegister(DS3231_CONTROL_ADDR)
@@ -315,7 +314,7 @@ namespace DS3231 {
      * status
      */
     //% block "status"
-    //% weight=35
+    //% weight=37
     //% advanced=true
     export function status(): number {
         let status = getRegister(DS3231_STATUS_ADDR)
@@ -323,13 +322,11 @@ namespace DS3231 {
     }
 
 
-
-
     /**
      * hexString
      */
     //% block
-    //% weight=0
+    //% weight=20
     //% advanced=true
     export function hexString(value: number): string {
         return decToHexString(value, 16)
@@ -339,7 +336,7 @@ namespace DS3231 {
      * binaryString
      */
     //% block
-    //% weight=0
+    //% weight=19
     //% advanced=true
     export function binaryString(value: number): string {
         return decToHexString(value, 2)
@@ -349,7 +346,7 @@ namespace DS3231 {
      * decimalString
      */
     //% block
-    //% weight=0
+    //% weight=18
     //% advanced=true
     export function decimalString(value: number): string {
         return decToHexString(value, 10)
